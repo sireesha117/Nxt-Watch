@@ -1,7 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-
-import {LoginContainer, LoginCard} from './styledComponents'
+import {Redirect} from 'react-router-dom'
+import {LoginContainer, LoginCard, LogoImg} from './styledComponents'
 
 class LoginPage extends Component {
   state = {username: '', password: '', errMsg: '', err: false, show: false}
@@ -14,7 +14,7 @@ class LoginPage extends Component {
     this.setState({password: event.target.value})
   }
 
-  onChangeCheckbox = event => {
+  onChangeCheckbox = () => {
     this.setState(prevState => ({show: !prevState.show}))
   }
 
@@ -52,10 +52,14 @@ class LoginPage extends Component {
 
   render() {
     const {err, errMsg, username, password, show} = this.state
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <LoginContainer>
         <LoginCard>
-          <img
+          <LogoImg
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
             alt="logo"
           />
@@ -73,7 +77,7 @@ class LoginPage extends Component {
               <label htmlFor="password">PASSWORD</label>
               <input
                 onChange={this.onChangePassword}
-                type={this.state.show ? 'text' : 'password'}
+                type={show ? 'text' : 'password'}
                 value={password}
                 id="password"
               />
