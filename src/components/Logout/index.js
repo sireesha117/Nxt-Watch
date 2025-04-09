@@ -1,7 +1,7 @@
 import Popup from 'reactjs-popup'
 import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
-import {LogOut} from './styledComponents'
+import {LogOut, Confirm, Cancel} from './styledComponents'
 
 const Logout = props => {
   const onLogout = () => {
@@ -22,22 +22,22 @@ const Logout = props => {
         {close => (
           <>
             <div>
-              <p>Are u sure?</p>
+              <p>Are you sure,you want to logout?</p>
             </div>
-            <button
+            <Cancel
               type="button"
               className="trigger-button"
               onClick={() => close()}
             >
               cancel
-            </button>
-            <button
+            </Cancel>
+            <Confirm
               type="button"
               className="trigger-button"
               onClick={() => onLogout()}
             >
-              Logout
-            </button>
+              Confirm
+            </Confirm>
           </>
         )}
       </Popup>

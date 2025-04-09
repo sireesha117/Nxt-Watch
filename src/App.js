@@ -16,7 +16,7 @@ class App extends Component {
   state = {isLightTheme: true}
 
   onChangeTheme = () => {
-    this.setState(prevState => ({isLightTheme: prevState.isLightTheme}))
+    this.setState(prevState => ({isLightTheme: !prevState.isLightTheme}))
   }
 
   render() {
@@ -36,7 +36,7 @@ class App extends Component {
           <ProtectedRoute exact path="/saved-videos" component={SavedVideos} />
           <ProtectedRoute
             exact
-            path="/VideoItemDetails"
+            path="/videos/:id"
             component={VideoItemDetails}
           />
           <Route component={NotFound} />

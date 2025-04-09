@@ -21,3 +21,7 @@ export const Profile = styled.img`
   height: 30px;
   width: 30px;
 `
+export const ThemeButton = styled.button`
+  border-width: 0px;
+  background-color: transparent;
+`
