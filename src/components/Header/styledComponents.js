@@ -26,4 +26,5 @@ export const Profile = styled.img`
 export const ThemeButton = styled.button`
   border-width: 0px;
   background-color: transparent;
+  color: ${props => (props.isLight ? 'black' : 'white')};
 `

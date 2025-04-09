@@ -36,11 +36,15 @@ const Header = () => (
           <LogoutContainer>
             <div>
               {isLightTheme ? (
-                <ThemeButton type="button" onClick={onClickThemeBtn}>
+                <ThemeButton
+                  isLight={isLightTheme}
+                  type="button"
+                  onClick={onClickThemeBtn}
+                >
                   <MdDarkMode />
                 </ThemeButton>
               ) : (
-                <ThemeButton onClick={onClickThemeBtn}>
+                <ThemeButton isLight={isLightTheme} onClick={onClickThemeBtn}>
                   <CiLight />
                 </ThemeButton>
               )}
