@@ -1,7 +1,13 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import {Redirect} from 'react-router-dom'
-import {LoginContainer, LoginCard, LogoImg} from './styledComponents'
+import {
+  InputEle,
+  LoginContainer,
+  LoginCard,
+  LogoImg,
+  LoginButton,
+} from './styledComponents'
 
 class LoginPage extends Component {
   state = {username: '', password: '', errMsg: '', err: false, show: false}
@@ -66,21 +72,27 @@ class LoginPage extends Component {
           <form onSubmit={this.onSubmitForm}>
             <div>
               <label htmlFor="username">USERNAME</label>
-              <input
-                type="text"
-                id="username"
-                value={username}
-                onChange={this.onChangeUsername}
-              />
+              <div>
+                <InputEle
+                  type="text"
+                  id="username"
+                  value={username}
+                  placeholder="Username"
+                  onChange={this.onChangeUsername}
+                />
+              </div>
             </div>
             <div>
               <label htmlFor="password">PASSWORD</label>
-              <input
-                onChange={this.onChangePassword}
-                type={show ? 'text' : 'password'}
-                value={password}
-                id="password"
-              />
+              <div>
+                <InputEle
+                  onChange={this.onChangePassword}
+                  type={show ? 'text' : 'password'}
+                  value={password}
+                  placeholder="Password"
+                  id="password"
+                />
+              </div>
             </div>
             <div>
               <input
@@ -90,7 +102,7 @@ class LoginPage extends Component {
               />
               <label htmlFor="show">Show Password</label>
             </div>
-            <button type="submit">Login</button>
+            <LoginButton type="submit">Login</LoginButton>
             <div>{err && <p>{errMsg}</p>}</div>
           </form>
         </LoginCard>

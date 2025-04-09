@@ -1,11 +1,12 @@
 import styled from 'styled-components'
 
 export const LoginContainer = styled.div`
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-min-height:100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: Roboto;
 `
 
 export const LoginCard = styled.div`
@@ -21,7 +22,23 @@ export const LoginCard = styled.div`
 `
 
 export const LogoImg = styled.img`
-height:50px;
-width:100px;
-padding:10px;
+  height: 50px;
+  width: 100px;
+  padding: 10px;
+`
+
+export const InputEle = styled.input`
+  margin: 10px;
+  width: 100%;
+  margin-left: 0px;
+`
+export const LoginButton = styled.button`
+  width: 100%;
+  color: white;
+  border-radius: 5px;
+  background-color: #3b82f6;
+  border-width: 0px;
+  padding: 10px;
+  margin: 5px;
+  margin-left: 0px;
 `
