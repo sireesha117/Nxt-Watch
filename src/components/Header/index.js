@@ -21,7 +21,7 @@ const Header = () => (
         onChangeTheme()
       }
       return (
-        <HeadContainer>
+        <HeadContainer isLight={isLightTheme}>
           <Link to="/">
             <HeadLogo
               src={
