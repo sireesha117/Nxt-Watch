@@ -37,7 +37,7 @@ class Home extends Component {
   }
 
   onUserInput = event => {
-    this.setState({userInput: event.target.value})
+    this.setState({userInput: event.target.value}, this.getHomeData)
   }
 
   getHomeData = async () => {
@@ -136,7 +136,7 @@ class Home extends Component {
                       value={userInput}
                       onChange={this.onUserInput}
                     />
-                    <button type="button">
+                    <button type="button" onClick={this.getHomeData}>
                       <CiSearch />
                     </button>
                   </div>
