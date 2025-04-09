@@ -1,5 +1,10 @@
 import WatchContext from '../WatchContext'
-import {HeadContainer} from './styledComponents'
+import {
+  HeadContainer,
+  LogoutContainer,
+  HeadLogo,
+  Profile,
+} from './styledComponents'
 import Logout from '../Logout'
 
 const Header = () => (
@@ -8,7 +13,7 @@ const Header = () => (
       const {isLightTheme} = value
       return (
         <HeadContainer>
-          <img
+          <HeadLogo
             src={
               isLightTheme
                 ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
@@ -16,13 +21,13 @@ const Header = () => (
             }
             alt="website logo"
           />
-          <div>
-            <img
+          <LogoutContainer>
+            <Profile
               src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
               alt="profile"
             />
             <Logout />
-          </div>
+          </LogoutContainer>
         </HeadContainer>
       )
     }}

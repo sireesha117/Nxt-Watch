@@ -1,6 +1,7 @@
 import Popup from 'reactjs-popup'
 import {withRouter} from 'react-router-dom'
 import Cookies from 'js-cookie'
+import {LogOut} from './styledComponents'
 
 const Logout = props => {
   const onLogout = () => {
@@ -13,9 +14,9 @@ const Logout = props => {
       <Popup
         modal
         trigger={
-          <button type="button" className="trigger-button">
+          <LogOut type="button" className="trigger-button">
             Logout
-          </button>
+          </LogOut>
         }
       >
         {close => (
