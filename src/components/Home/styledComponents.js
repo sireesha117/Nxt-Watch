@@ -33,3 +33,6 @@ export const BannerImg = styled.img`
   width: 90px;
   height: 40px;
 `
+export const HomeData = styled.div`
+  padding: 5px;
+`
