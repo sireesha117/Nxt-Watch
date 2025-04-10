@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-
+import {Link} from 'react-router-dom'
 import {IoIosClose} from 'react-icons/io'
 import {CiSearch} from 'react-icons/ci'
 import {formatDistanceToNow} from 'date-fns'
@@ -100,15 +100,17 @@ class Home extends Component {
         return (
           <HomeSuccess>
             {homeData.map(video => (
-              <HomeList key={video.id}>
-                <HomeImg src={video.thumbnailUrl} alt={video.title} />
-                <HeadingHome>{video.title}</HeadingHome>
-                <Ib>{video.channel.name}</Ib>
-                <InfoRow>
-                  <span>{video.viewCount} views</span>
-                  <span>{video.publishedAt}</span>
-                </InfoRow>
-              </HomeList>
+              <Link to={`/videos/${video.id}`}>
+                <HomeList key={video.id}>
+                  <HomeImg src={video.thumbnailUrl} alt={video.title} />
+                  <HeadingHome>{video.title}</HeadingHome>
+                  <Ib>{video.channel.name}</Ib>
+                  <InfoRow>
+                    <span>{video.viewCount} views</span>
+                    <span>{video.publishedAt}</span>
+                  </InfoRow>
+                </HomeList>
+              </Link>
             ))}
           </HomeSuccess>
         )

@@ -19,7 +19,8 @@ export const Banner = styled.div`
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? 'white' : 'black')};
+  background-color: ${props => (props.isLight ? ' #ebebeb' : 'black')};
+  color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
 `
 
@@ -55,8 +56,7 @@ export const HomeList = styled.li`
   margin: 10px; /* Space between cards */
   display: flex;
   flex-direction: column; /* Stack content vertically */
-  /* Center-align items in the card */
-  /* Ensure text is centrally aligned */
+
   word-wrap: break-word; /* Prevent long words from overflowing */
   overflow: hidden; /* Hide overflowing text */
 `
