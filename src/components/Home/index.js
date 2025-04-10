@@ -1,16 +1,24 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+
 import {IoIosClose} from 'react-icons/io'
 import {CiSearch} from 'react-icons/ci'
+import {formatDistanceToNow} from 'date-fns'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
   Banner,
+  InfoRow,
+  Ib,
   CloseIcon,
+  HomeImg,
+  HeadingHome,
   BannerImg,
   Right,
   HomeData,
+  HomeSuccess,
+  HomeList,
 } from './styledComponents'
 import WatchContext from '../WatchContext'
 
@@ -40,6 +48,12 @@ class Home extends Component {
     this.setState({userInput: event.target.value}, this.getHomeData)
   }
 
+  getFormattedDate = date => {
+    const rawOutput = formatDistanceToNow(new Date(date), {addSuffix: true})
+
+    return rawOutput.replace(/almost |about /g, '')
+  }
+
   getHomeData = async () => {
     const {userInput} = this.state
     this.setState({apiStsData: apiSts.inProgress})
@@ -62,7 +76,13 @@ class Home extends Component {
           name: eachItem.channel.name,
           profileImageUrl: eachItem.channel.profile_image_url,
         },
+        viewCount:
+          eachItem.view_count > 1000
+            ? `${(eachItem.view_count / 1000).toFixed(1)}k`
+            : eachItem.view_count,
+        publishedAt: this.getFormattedDate(eachItem.published_at),
       }))
+
       this.setState({homeData: formattedData, apiStsData: apiSts.success})
     } else {
       this.setState({apiStsData: apiSts.failure})
@@ -74,20 +94,24 @@ class Home extends Component {
 
     switch (apiStsData) {
       case apiSts.inProgress:
-        return <p>Loading...</p> // Show a loading indicator
+        return <p>loading</p>
 
       case apiSts.success:
         return (
-          <ul>
+          <HomeSuccess>
             {homeData.map(video => (
-              <li key={video.id}>
-                <img src={video.thumbnailUrl} alt={video.title} />
-                <h4>{video.title}</h4>
-                <p>{video.channel.name}</p>
-              </li>
+              <HomeList key={video.id}>
+                <HomeImg src={video.thumbnailUrl} alt={video.title} />
+                <HeadingHome>{video.title}</HeadingHome>
+                <Ib>{video.channel.name}</Ib>
+                <InfoRow>
+                  <span>{video.viewCount} views</span>
+                  <span>{video.publishedAt}</span>
+                </InfoRow>
+              </HomeList>
             ))}
-          </ul>
-        ) // Render the data when API call is successful
+          </HomeSuccess>
+        )
 
       case apiSts.failure:
         return <p>Something went wrong. Please try again.</p> // Show error message for failure case
