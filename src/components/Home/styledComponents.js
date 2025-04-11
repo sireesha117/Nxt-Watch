@@ -35,17 +35,16 @@ export const BannerImg = styled.img`
   height: 40px;
 `
 export const HomeData = styled.div`
-  padding: 5px;
   font-family: Roboto;
 `
 export const HomeSuccess = styled.ul`
   display: flex;
   flex-direction: row; /* Lay cards horizontally */
   flex-wrap: wrap; /* Wrap cards to the next row if space runs out */
-  justify-content: space-around; /* Spread cards evenly */
+  justify-content: flex-start; /* Spread cards evenly */
   list-style-type: none; /* Remove bullets */
-  padding-left: 0; /* Remove padding */
-  margin: 0; /* Remove margin */
+  padding-left: 0px; /* Remove padding */
+  margin: 0px; /* Remove margin */
 `
 export const Ib = styled.p`
   margin-left: 0px;

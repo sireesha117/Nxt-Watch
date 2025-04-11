@@ -13,19 +13,35 @@ import WatchContext from './components/WatchContext'
 
 // Replace your code here
 class App extends Component {
-  state = {isLightTheme: true}
+  state = {isLightTheme: true, savedVideos: []}
 
   onChangeTheme = () => {
     this.setState(prevState => ({isLightTheme: !prevState.isLightTheme}))
   }
 
+  onSaved = savedResult => {
+    const {savedVideos} = this.state
+    this.setState(prevState => {
+      const saveCheck = prevState.savedVideos.find(
+        video => video.id === savedResult.id,
+      )
+      if (saveCheck) {
+        return null
+      }
+      return {savedVideos: [...prevState.savedVideos, savedResult]}
+    })
+    console.log(savedVideos)
+  }
+
   render() {
-    const {isLightTheme} = this.state
+    const {isLightTheme, savedVideos} = this.state
     return (
       <WatchContext.Provider
         value={{
           isLightTheme,
           onChangeTheme: this.onChangeTheme,
+          savedVideos,
+          onSaved: this.onSaved,
         }}
       >
         <Switch>
