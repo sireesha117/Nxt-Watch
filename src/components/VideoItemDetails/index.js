@@ -88,75 +88,71 @@ class VideoItemDetails extends Component {
   }
 
   renderVideoData = () => {
-    const {apiStsData, detailArray} = this.state
+    const {apiStsData, detailArray, isLike, isDislike} = this.state
 
     switch (apiStsData) {
       case apiSts.inProgress:
         return <p>Loading...</p>
 
-      case apiSts.success: {
-        const {
-          title,
-          videoUrl,
-          viewCount,
-          publishedAt,
-          description,
-        } = detailArray
-        const {isLike, isDislike} = this.state
-
+      case apiSts.success:
         return (
-          <div>
-            <div key={detailArray.id}>
-              <ReactPlayer url={videoUrl} />
-              <h1>{title}</h1>
-              <div>
-                <span>{viewCount} views</span>
-                <span>{publishedAt}</span>
+          <WatchContext.Consumer>
+            {value => {
+              const {isLightTheme, savedVideos, onSaved} = value
+              const isSaved = savedVideos.some(
+                video => video.id === detailArray.id,
+              )
+
+              const {
+                title,
+                videoUrl,
+                viewCount,
+                publishedAt,
+                description,
+              } = detailArray
+
+              return (
                 <div>
-                  <LikeButton
-                    isLike={isLike}
-                    type="button"
-                    onClick={this.onLike}
-                  >
-                    <p>Like</p>
-                  </LikeButton>
-                  <DislikeButton
-                    isDislike={isDislike}
-                    type="button"
-                    onClick={this.onDislike}
-                  >
-                    <p>Dislike</p>
-                  </DislikeButton>
-                  <WatchContext.Consumer>
-                    {value => {
-                      const {savedVideos, onSaved} = value
-                      const isSaved = savedVideos.some(
-                        video => video.id === detailArray.id,
-                      )
-                      return (
-                        <SaveButton
+                  <div key={detailArray.id}>
+                    <ReactPlayer url={videoUrl} />
+                    <h1>{title}</h1>
+                    <div>
+                      <span>{viewCount} views</span>
+                      <span>{publishedAt}</span>
+                      <div>
+                        <LikeButton
+                          isLike={isLike}
+                          isLight={isLightTheme}
                           type="button"
+                          onClick={this.onLike}
+                        >
+                          <p>Like</p>
+                        </LikeButton>
+                        <DislikeButton
+                          isDislike={isDislike}
+                          isLight={isLightTheme}
+                          type="button"
+                          onClick={this.onDislike}
+                        >
+                          <p>Dislike</p>
+                        </DislikeButton>
+                        <SaveButton
+                          isLight={isLightTheme}
                           isSaved={isSaved}
+                          type="button"
                           onClick={() => onSaved(detailArray)}
                         >
-                          <p>
-                            {savedVideos.some(
-                              video => video.id === detailArray.id,
-                            )
-                              ? 'Saved'
-                              : 'Save'}
-                          </p>
+                          <p>{isSaved ? 'Saved' : 'Save'}</p>
                         </SaveButton>
-                      )
-                    }}
-                  </WatchContext.Consumer>
+                      </div>
+                    </div>
+                    <p>{description}</p>
+                  </div>
                 </div>
-              </div>
-              <p>{description}</p>
-            </div>
-          </div>
+              )
+            }}
+          </WatchContext.Consumer>
         )
-      }
 
       case apiSts.failure:
         return <p>Something went wrong. Please try again.</p>

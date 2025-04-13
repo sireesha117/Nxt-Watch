@@ -1,4 +1,19 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
+
+export const StyledLink = styled(Link)`
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure it inherits the parent element's color */
+  &:visited {
+    color: inherit; /* Prevent the visited link color from turning purple */
+  }
+  &:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+  }
+  &:active {
+    color: inherit; /* Ensure active state does not change the color */
+  }
+`
 
 export const Divide = styled.div`
   display: flex;

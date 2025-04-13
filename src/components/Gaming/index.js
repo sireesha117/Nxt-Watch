@@ -1,9 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-import {Link} from 'react-router-dom'
+
 import {IoIosClose} from 'react-icons/io'
-import {CiSearch} from 'react-icons/ci'
-import {formatDistanceToNow} from 'date-fns'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
@@ -15,6 +13,7 @@ import {
   HeadingHome,
   BannerImg,
   Right,
+  StyledLink,
   HomeData,
   HomeSuccess,
   HomeList,
@@ -41,12 +40,6 @@ class Gaming extends Component {
 
   onCloseIcon = () => {
     this.setState({close: true})
-  }
-
-  getFormattedDate = date => {
-    const rawOutput = formatDistanceToNow(new Date(date), {addSuffix: true})
-
-    return rawOutput.replace(/almost |about /g, '')
   }
 
   getHomeData = async () => {
@@ -86,7 +79,7 @@ class Gaming extends Component {
         return (
           <HomeSuccess>
             {homeData.map(video => (
-              <Link to={`/videos/${video.id}`}>
+              <StyledLink to={`/videos/${video.id}`}>
                 <HomeList key={video.id}>
                   <HomeImg src={video.thumbnailUrl} alt={video.title} />
                   <HeadingHome>{video.title}</HeadingHome>
@@ -95,7 +88,7 @@ class Gaming extends Component {
                     <span>{video.viewCount} views</span>
                   </InfoRow>
                 </HomeList>
-              </Link>
+              </StyledLink>
             ))}
           </HomeSuccess>
         )
@@ -104,7 +97,7 @@ class Gaming extends Component {
         return <p>Something went wrong. Please try again.</p>
 
       default:
-        return null // Handle the initial state or unexpected cases
+        return null
     }
   }
 
@@ -141,11 +134,7 @@ class Gaming extends Component {
                       </Banner>
                     )}
                   </div>
-                  <div>
-                    <button type="button" onClick={this.getHomeData}>
-                      <CiSearch />
-                    </button>
-                  </div>
+
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>

@@ -1,9 +1,9 @@
-import {Link} from 'react-router-dom'
 import WatchContext from '../WatchContext'
 import {
   SideBarContainer,
   UnOrdered,
   Footer,
+  StyledLink,
   Logos,
   LogoImgs,
 } from './styledComponents'
@@ -16,18 +16,18 @@ const SideBar = () => (
       return (
         <SideBarContainer isLight={isLightTheme}>
           <UnOrdered>
-            <Link to="/">
+            <StyledLink to="/">
               <li>Home</li>
-            </Link>
-            <Link to="/trending">
+            </StyledLink>
+            <StyledLink to="/trending">
               <li>Trending</li>
-            </Link>
-            <Link to="/gaming">
+            </StyledLink>
+            <StyledLink to="/gaming">
               <li>Gaming</li>
-            </Link>
-            <Link to="/saved-videos">
+            </StyledLink>
+            <StyledLink to="/saved-videos">
               <li>Saved Videos</li>
-            </Link>
+            </StyledLink>
           </UnOrdered>
           <Footer>
             <h1>CONTACT US</h1>
