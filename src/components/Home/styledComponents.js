@@ -21,17 +21,30 @@ export const Divide = styled.div`
 `
 export const Banner = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
-  background-size: contain; /* Use 'contain' to ensure the image fits within the container */
+  background-size: cover; /* Use 'cover' to ensure the image spans the entire container */
   background-repeat: no-repeat; /* Prevent the image from repeating */
-  //  background-position: right center;
+  background-position: center; /* Center the background image */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: flex-start;
-  width: 100%;
-  height: 200px;
+  align-items: flex-start; /* Center vertically */
+  width: 100%; /* Take the full width of the container */
+  height: 200px; /* Specify the height of the banner */
+  position: relative; /* Use relative positioning for the Banner */
   color: ${props => (props.isLight ? 'black' : 'white')};
+  padding: 10px;
 `
+export const InputDiv = styled.div`
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+export const SearchButton = styled.button`
+  border-width: 0px;
+  background-color: transparent;
+`
+
 export const Right = styled.div`
   padding: 10px;
   background-color: ${props => (props.isLight ? ' #ebebeb' : 'black')};

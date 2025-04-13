@@ -2,17 +2,36 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 export const StyledLink = styled(Link)`
-  text-decoration: none; /* Remove underline */
-  color: inherit; /* Ensure it inherits the parent element's color */
-  &:visited {
-    color: inherit; /* Prevent the visited link color from turning purple */
-  }
+  text-decoration: none;
+  color: ${props => {
+    if (props.isActive && props.isLight) {
+      return 'black' // Active tab text color for light theme
+    }
+    if (props.isActive && !props.isLight) {
+      return 'white' // Active tab text color for dark theme
+    }
+    return 'inherit' // Default text color for non-active tabs
+  }};
+  background-color: ${props => {
+    if (props.isActive && props.isLight) {
+      return '#d7dfe9' // Active tab background color for light theme
+    }
+    if (props.isActive && !props.isLight) {
+      return '#909090' // Active tab background color for dark theme
+    }
+    return 'transparent' // Default background color for non-active tabs
+  }};
+  padding: 10px;
+  border-radius: 5px; /* Add rounded corners */
+  display: block; /* Allow link to span the full width of the sidebar */
   &:hover {
-    text-decoration: none; /* Ensure no underline on hover */
+    text-decoration: none; /* No underline on hover */
+    opacity: 0.8; /* Optional hover effect */
   }
-  &:active {
-    color: inherit; /* Ensure active state does not change the color */
-  }
+`
+
+export const HeadData = styled.h1`
+  font-size: 15px;
 `
 export const SideBarContainer = styled.div`
   display: flex;

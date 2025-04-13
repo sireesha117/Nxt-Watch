@@ -10,6 +10,8 @@ import {
   Divide,
   Banner,
   InfoRow,
+  InputDiv,
+  SearchButton,
   Ib,
   StyledLink,
   CloseIcon,
@@ -117,10 +119,10 @@ class Home extends Component {
         )
 
       case apiSts.failure:
-        return <p>Something went wrong. Please try again.</p> // Show error message for failure case
+        return <p>Something went wrong. Please try again.</p>
 
       default:
-        return null // Handle the initial state or unexpected cases
+        return null
     }
   }
 
@@ -157,16 +159,16 @@ class Home extends Component {
                       </Banner>
                     )}
                   </div>
-                  <div>
+                  <InputDiv>
                     <input
                       type="search"
                       value={userInput}
                       onChange={this.onUserInput}
                     />
-                    <button type="button" onClick={this.getHomeData}>
+                    <SearchButton type="button" onClick={this.getHomeData}>
                       <CiSearch />
-                    </button>
-                  </div>
+                    </SearchButton>
+                  </InputDiv>
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>
