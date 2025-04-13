@@ -20,17 +20,21 @@ class App extends Component {
   }
 
   onSaved = savedResult => {
-    const {savedVideos} = this.state
     this.setState(prevState => {
       const saveCheck = prevState.savedVideos.find(
         video => video.id === savedResult.id,
       )
+
       if (saveCheck) {
-        return null
+        const updatedVideos = prevState.savedVideos.filter(
+          video => video.id !== savedResult.id,
+        )
+        console.log('Video removed from saved videos:', savedResult)
+        return {savedVideos: updatedVideos}
       }
+      console.log('Video added to saved videos:', savedResult)
       return {savedVideos: [...prevState.savedVideos, savedResult]}
     })
-    console.log(savedVideos)
   }
 
   render() {

@@ -6,7 +6,7 @@ export const HeadContainer = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 10px;
-  background-color: ${props => (props.isLight ? 'white' : '#424242')};
+  background-color: ${props => (props.isLight ? 'white' : '#313131')};
   color: ${props => (props.isLight ? 'black' : 'white')};
 `
 export const LogoutContainer = styled.div`

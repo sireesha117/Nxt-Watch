@@ -6,7 +6,13 @@ import WatchContext from '../WatchContext'
 import Header from '../Header'
 import SideBar from '../SideBar'
 
-import {Right, Divide} from './styledComponents'
+import {
+  Right,
+  Divide,
+  DislikeButton,
+  LikeButton,
+  SaveButton,
+} from './styledComponents'
 
 const apiSts = {
   initial: 'INITIAL',
@@ -32,30 +38,15 @@ class VideoItemDetails extends Component {
     return rawOutput.replace(/almost |about /g, '')
   }
 
-  onSaved = () => {
-    const {detailArray} = this.state
-    return (
-      <WatchContext.Consumer>
-        {value => {
-          const {onSaved} = value
-
-          onSaved(detailArray)
-        }}
-      </WatchContext.Consumer>
-    )
-  }
-
   onLike = () => {
     this.setState(prevState => ({
       isLike: !prevState.isLike,
-      isDislike: prevState.isLike ? false : prevState.isDislike,
     }))
   }
 
   onDislike = () => {
     this.setState(prevState => ({
       isDislike: !prevState.isDislike,
-      isLike: prevState.isDislike ? false : prevState.isLike,
     }))
   }
 
@@ -101,7 +92,7 @@ class VideoItemDetails extends Component {
 
     switch (apiStsData) {
       case apiSts.inProgress:
-        return <p>loading</p>
+        return <p>Loading...</p>
 
       case apiSts.success: {
         const {
@@ -111,27 +102,54 @@ class VideoItemDetails extends Component {
           publishedAt,
           description,
         } = detailArray
-        const {isLike} = this.state
+        const {isLike, isDislike} = this.state
 
         return (
           <div>
             <div key={detailArray.id}>
               <ReactPlayer url={videoUrl} />
               <h1>{title}</h1>
-
               <div>
                 <span>{viewCount} views</span>
                 <span>{publishedAt}</span>
                 <div>
-                  <button type="button" onClick={this.onLike}>
+                  <LikeButton
+                    isLike={isLike}
+                    type="button"
+                    onClick={this.onLike}
+                  >
                     <p>Like</p>
-                  </button>
-                  <button type="button" onClick={this.onDislike}>
+                  </LikeButton>
+                  <DislikeButton
+                    isDislike={isDislike}
+                    type="button"
+                    onClick={this.onDislike}
+                  >
                     <p>Dislike</p>
-                  </button>
-                  <button type="button" onClick={this.onSaved}>
-                    <p>{isLike ? 'Saved' : 'Save'}</p>
-                  </button>
+                  </DislikeButton>
+                  <WatchContext.Consumer>
+                    {value => {
+                      const {savedVideos, onSaved} = value
+                      const isSaved = savedVideos.some(
+                        video => video.id === detailArray.id,
+                      )
+                      return (
+                        <SaveButton
+                          type="button"
+                          isSaved={isSaved}
+                          onClick={() => onSaved(detailArray)}
+                        >
+                          <p>
+                            {savedVideos.some(
+                              video => video.id === detailArray.id,
+                            )
+                              ? 'Saved'
+                              : 'Save'}
+                          </p>
+                        </SaveButton>
+                      )
+                    }}
+                  </WatchContext.Consumer>
                 </div>
               </div>
               <p>{description}</p>
@@ -141,10 +159,10 @@ class VideoItemDetails extends Component {
       }
 
       case apiSts.failure:
-        return <p>Something went wrong. Please try again.</p> // Show error message for failure case
+        return <p>Something went wrong. Please try again.</p>
 
       default:
-        return null // Handle the initial state or unexpected cases
+        return null
     }
   }
 

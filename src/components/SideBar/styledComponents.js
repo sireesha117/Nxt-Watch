@@ -6,7 +6,7 @@ export const SideBarContainer = styled.div`
   justify-content: space-between;
   width: 15%; /* Sidebar width */
   padding: 10px;
-  background-color: ${props => (props.isLight ? 'white' : '#424242')};
+  background-color: ${props => (props.isLight ? 'white' : ' #313131')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   height: 100vh; /* Sidebar spans full viewport height */
   position: sticky; /* Keeps the sidebar fixed when scrolling */
