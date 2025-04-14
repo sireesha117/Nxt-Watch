@@ -1,5 +1,7 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
+import Loader from 'react-loader-spinner'
+
 import ReactPlayer from 'react-player'
 import {formatDistanceToNow} from 'date-fns'
 import WatchContext from '../WatchContext'
@@ -92,7 +94,11 @@ class VideoItemDetails extends Component {
 
     switch (apiStsData) {
       case apiSts.inProgress:
-        return <p>Loading...</p>
+        return (
+          <div className="loader-container" data-testid="loader">
+            <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+          </div>
+        )
 
       case apiSts.success:
         return (

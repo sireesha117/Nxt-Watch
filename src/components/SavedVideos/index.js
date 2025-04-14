@@ -1,7 +1,7 @@
 import Header from '../Header'
 import SideBar from '../SideBar'
 import WatchContext from '../WatchContext'
-import {Right, Divide} from './styledComponents'
+import {Right, Divide, EmptyImage, EmptyDiv} from './styledComponents'
 
 const SavedVideos = () => (
   <WatchContext.Consumer>
@@ -14,23 +14,34 @@ const SavedVideos = () => (
           <Divide>
             <SideBar />
             <Right isLight={isLightTheme}>
-              <div>
-                <ul>
-                  {savedVideos.map(eachItem => (
-                    <li>
-                      <img src={eachItem.thumbnailUrl} alt="img" />
-                      <div>
-                        <h1>{eachItem.title}</h1>
-                        <p>{eachItem.channel.name}</p>
+              {savedVideos.length === 0 ? (
+                <EmptyDiv>
+                  <EmptyImage
+                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png "
+                    alt="no saved videos"
+                  />
+                  <h1>No saved videos found</h1>
+                  <p>You can save your videos while watching them</p>
+                </EmptyDiv>
+              ) : (
+                <div>
+                  <ul>
+                    {savedVideos.map(eachItem => (
+                      <li key={eachItem.id}>
+                        <img src={eachItem.thumbnailUrl} alt="Thumbnail" />
                         <div>
-                          <span>{eachItem.viewCount} views</span>
-                          <span>{eachItem.publishedAt}</span>
+                          <h1>{eachItem.title}</h1>
+                          <p>{eachItem.channel.name}</p>
+                          <div>
+                            <span>{eachItem.viewCount} views</span>
+                            <span>{eachItem.publishedAt}</span>
+                          </div>
                         </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </Right>
           </Divide>
         </div>
@@ -38,4 +49,5 @@ const SavedVideos = () => (
     }}
   </WatchContext.Consumer>
 )
+
 export default SavedVideos

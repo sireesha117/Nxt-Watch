@@ -14,10 +14,22 @@ export const StyledLink = styled(Link)`
     color: inherit; /* Ensure active state does not change the color */
   }
 `
+export const Loaders = styled.div`
+  position: absolute; /* Absolute positioning */
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Perfect centering */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: auto;
+`
 
 export const Divide = styled.div`
   display: flex;
   flex-direction: row;
+  min-height: 100vh;
 `
 export const Banner = styled.div`
   background-image: url('https://assets.ccbp.in/frontend/react-js/nxt-watch-banner-bg.png');
@@ -50,6 +62,7 @@ export const Right = styled.div`
   background-color: ${props => (props.isLight ? ' #ebebeb' : 'black')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
+  min-height: 100vh;
 `
 
 export const CloseIcon = styled.button`

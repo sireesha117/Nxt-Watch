@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
-
+import Loader from 'react-loader-spinner'
 import {IoIosClose} from 'react-icons/io'
 import Header from '../Header'
 import SideBar from '../SideBar'
@@ -73,7 +73,11 @@ class Gaming extends Component {
 
     switch (apiStsData) {
       case apiSts.inProgress:
-        return <p>loading</p>
+        return (
+          <div className="loader-container" data-testid="loader">
+            <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+          </div>
+        )
 
       case apiSts.success:
         return (
