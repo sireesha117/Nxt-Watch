@@ -1,7 +1,15 @@
 import Header from '../Header'
 import SideBar from '../SideBar'
 import WatchContext from '../WatchContext'
-import {Right, Divide, EmptyImage, EmptyDiv} from './styledComponents'
+import {
+  Right,
+  Divide,
+  EmptyImage,
+  EmptyDiv,
+  UlSaved,
+  LiSaved,
+  SavedImg,
+} from './styledComponents'
 
 const SavedVideos = () => (
   <WatchContext.Consumer>
@@ -25,10 +33,10 @@ const SavedVideos = () => (
                 </EmptyDiv>
               ) : (
                 <div>
-                  <ul>
+                  <UlSaved>
                     {savedVideos.map(eachItem => (
-                      <li key={eachItem.id}>
-                        <img src={eachItem.thumbnailUrl} alt="Thumbnail" />
+                      <LiSaved key={eachItem.id}>
+                        <SavedImg src={eachItem.thumbnailUrl} alt="Thumbnail" />
                         <div>
                           <h1>{eachItem.title}</h1>
                           <p>{eachItem.channel.name}</p>
@@ -37,9 +45,9 @@ const SavedVideos = () => (
                             <span>{eachItem.publishedAt}</span>
                           </div>
                         </div>
-                      </li>
+                      </LiSaved>
                     ))}
-                  </ul>
+                  </UlSaved>
                 </div>
               )}
             </Right>

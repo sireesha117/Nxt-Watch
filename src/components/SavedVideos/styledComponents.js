@@ -18,9 +18,27 @@ export const EmptyImage = styled.img`
   height: 350px;
   width: 350px;
 `
+export const UlSaved = styled.ul`
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  padding-left: 0px;
+`
 export const EmptyDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+`
+export const LiSaved = styled.li`
+  display: flex;
+  flex-direction: row;
+  margin-left: 0px;
+  align-items: center;
+`
+export const SavedImg = styled.img`
+  height: 200px;
+  width: 200px;
+  border-radius: 5px;
+  margin: 10px;
 `
