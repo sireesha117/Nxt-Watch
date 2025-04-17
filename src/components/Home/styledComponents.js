@@ -43,7 +43,7 @@ export const Banner = styled.div`
   width: 100%; /* Take the full width of the container */
   height: 200px; /* Specify the height of the banner */
   position: relative; /* Use relative positioning for the Banner */
-  color: ${props => (props.isLight ? 'black' : 'white')};
+  color: ${props => (props.isLight ? 'black' : 'black')};
   padding: 10px;
 `
 export const InputDiv = styled.div`
