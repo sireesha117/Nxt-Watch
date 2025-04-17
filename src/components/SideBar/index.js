@@ -35,7 +35,7 @@ class SideBar extends Component {
                   isActive={location.pathname === '/'}
                 >
                   <IoMdHome />
-                  <List>Home</List>
+                  <List isLight={isLightTheme}>Home</List>
                 </StyledLink>
 
                 <StyledLink
@@ -44,7 +44,7 @@ class SideBar extends Component {
                   isActive={location.pathname === '/trending'}
                 >
                   <BsFire />
-                  <List>Trending</List>
+                  <List isLight={isLightTheme}>Trending</List>
                 </StyledLink>
 
                 <StyledLink
@@ -53,7 +53,7 @@ class SideBar extends Component {
                   isActive={location.pathname === '/gaming'}
                 >
                   <SiYoutubegaming />
-                  <List>Gaming</List>
+                  <List isLight={isLightTheme}>Gaming</List>
                 </StyledLink>
 
                 <StyledLink
@@ -62,7 +62,7 @@ class SideBar extends Component {
                   isActive={location.pathname === '/saved-videos'}
                 >
                   <RiPlayListAddLine />
-                  <List>Saved Videos</List>
+                  <List isLight={isLightTheme}>Saved Videos</List>
                 </StyledLink>
               </UnOrdered>
               <Footer>

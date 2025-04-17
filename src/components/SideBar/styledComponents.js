@@ -6,16 +6,16 @@ export const StyledLink = styled(Link)`
 
   color: ${props => {
     if (props.isActive) {
-      return props.isLight ? 'black' : 'white' // Active text color
+      return props.isLight ? '#ff0000' : '#ff0000'
     }
-    return props.isLight ? 'black' : 'white' // Inactive text color
+    return props.isLight ? 'black' : 'white'
   }};
 
   background-color: ${props => {
     if (props.isActive) {
-      return props.isLight ? '#cbd5e1' : '#606060' // Active background color
+      return props.isLight ? '#cbd5e1' : '#606060'
     }
-    return 'transparent' // Default background color
+    return 'transparent'
   }};
 
   &:hover {
@@ -32,7 +32,10 @@ export const StyledLink = styled(Link)`
 
 export const List = styled.li`
   padding-left: 10px;
+  color: ${props =>
+    props.isLight ? 'black' : 'white'}; /* Corrected ternary syntax */
 `
+
 export const HeadData = styled.h1`
   font-size: 15px;
 `

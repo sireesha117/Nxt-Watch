@@ -77,7 +77,7 @@ class Gaming extends Component {
         return (
           <Game>
             <GameFire>
-              <SiYoutubegaming />
+              <SiYoutubegaming size={30} />
               <h1>Gamming</h1>
             </GameFire>
 

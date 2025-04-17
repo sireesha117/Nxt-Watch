@@ -97,7 +97,7 @@ class Trending extends Component {
         return (
           <Trendings>
             <Trend>
-              <BsFire />
+              <BsFire size={30} />
 
               <h1>Trending</h1>
             </Trend>

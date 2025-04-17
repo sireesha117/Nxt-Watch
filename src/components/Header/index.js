@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom'
 
-import {MdOutlineDarkMode as MdDarkMode} from 'react-icons/md'
+import {MdDarkMode} from 'react-icons/md'
 import {CiLight} from 'react-icons/ci'
 import WatchContext from '../WatchContext'
 
@@ -41,11 +41,11 @@ const Header = () => (
                   type="button"
                   onClick={onClickThemeBtn}
                 >
-                  <MdDarkMode />
+                  <MdDarkMode size={30} />
                 </ThemeButton>
               ) : (
                 <ThemeButton isLight={isLightTheme} onClick={onClickThemeBtn}>
-                  <CiLight />
+                  <CiLight size={30} />
                 </ThemeButton>
               )}
             </div>
