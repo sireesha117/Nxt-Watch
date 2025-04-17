@@ -28,8 +28,14 @@ export const StyledLink = styled(Link)`
     text-decoration: none; /* No underline on hover */
     opacity: 0.8; /* Optional hover effect */
   }
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `
 
+export const List = styled.li`
+  padding-left: 10px;
+`
 export const HeadData = styled.h1`
   font-size: 15px;
 `

@@ -1,11 +1,17 @@
 import {Component} from 'react'
 import {withRouter} from 'react-router-dom'
+import {IoMdHome} from 'react-icons/io'
+import {SiYoutubegaming} from 'react-icons/si'
+import {RiPlayListAddLine} from 'react-icons/ri'
+import {BsFire} from 'react-icons/bs'
+
 import WatchContext from '../WatchContext'
 
 import {
   SideBarContainer,
   UnOrdered,
   Footer,
+  List,
   HeadData,
   StyledLink,
   Logos,
@@ -24,22 +30,26 @@ class SideBar extends Component {
               <UnOrdered>
                 {/* Render Home Tab */}
                 <StyledLink to="/" isLight={isLightTheme}>
-                  <li>Home</li>
+                  <IoMdHome />
+                  <List>Home</List>
                 </StyledLink>
 
                 {/* Render Trending Tab */}
                 <StyledLink to="/trending" isLight={isLightTheme}>
-                  <li>Trending</li>
+                  <BsFire />
+                  <List>Trending</List>
                 </StyledLink>
 
                 {/* Render Gaming Tab */}
                 <StyledLink to="/gaming" isLight={isLightTheme}>
-                  <li>Gaming</li>
+                  <SiYoutubegaming />
+                  <List>Gaming</List>
                 </StyledLink>
 
                 {/* Render Saved Videos Tab */}
                 <StyledLink to="/saved-videos" isLight={isLightTheme}>
-                  <li>Saved Videos</li>
+                  <RiPlayListAddLine />
+                  <List>Saved Videos</List>
                 </StyledLink>
               </UnOrdered>
               <Footer>

@@ -12,7 +12,7 @@ export const Right = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
 `
 export const EmptyImage = styled.img`
   height: 350px;
@@ -28,7 +28,7 @@ export const EmptyDiv = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
+  align-self: center;
 `
 export const LiSaved = styled.li`
   display: flex;
