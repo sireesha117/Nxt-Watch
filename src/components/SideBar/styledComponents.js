@@ -3,31 +3,28 @@ import {Link} from 'react-router-dom'
 
 export const StyledLink = styled(Link)`
   text-decoration: none;
+
   color: ${props => {
-    if (props.isActive && props.isLight) {
-      return 'black' // Active tab text color for light theme
+    if (props.isActive) {
+      return props.isLight ? 'black' : 'white' // Active text color
     }
-    if (props.isActive && !props.isLight) {
-      return 'white' // Active tab text color for dark theme
-    }
-    return 'inherit' // Default text color for non-active tabs
+    return props.isLight ? 'black' : 'white' // Inactive text color
   }};
+
   background-color: ${props => {
-    if (props.isActive && props.isLight) {
-      return '#d7dfe9' // Active tab background color for light theme
+    if (props.isActive) {
+      return props.isLight ? '#cbd5e1' : '#606060' // Active background color
     }
-    if (props.isActive && !props.isLight) {
-      return '#909090' // Active tab background color for dark theme
-    }
-    return 'transparent' // Default background color for non-active tabs
+    return 'transparent' // Default background color
   }};
-  padding: 10px;
-  border-radius: 5px; /* Add rounded corners */
-  display: block; /* Allow link to span the full width of the sidebar */
+
   &:hover {
-    text-decoration: none; /* No underline on hover */
+    background-color: ${props => (props.isLight ? '#f1f1f1' : '#383838')};
     opacity: 0.8; /* Optional hover effect */
   }
+
+  padding: 10px;
+  border-radius: 5px; /* Rounded corners */
   display: flex;
   flex-direction: row;
   align-items: center;

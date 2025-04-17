@@ -20,6 +20,7 @@ import {
 
 class SideBar extends Component {
   render() {
+    const {location} = this.props
     return (
       <WatchContext.Consumer>
         {value => {
@@ -28,26 +29,38 @@ class SideBar extends Component {
           return (
             <SideBarContainer isLight={isLightTheme}>
               <UnOrdered>
-                {/* Render Home Tab */}
-                <StyledLink to="/" isLight={isLightTheme}>
+                <StyledLink
+                  to="/"
+                  isLight={isLightTheme}
+                  isActive={location.pathname === '/'}
+                >
                   <IoMdHome />
                   <List>Home</List>
                 </StyledLink>
 
-                {/* Render Trending Tab */}
-                <StyledLink to="/trending" isLight={isLightTheme}>
+                <StyledLink
+                  to="/trending"
+                  isLight={isLightTheme}
+                  isActive={location.pathname === '/trending'}
+                >
                   <BsFire />
                   <List>Trending</List>
                 </StyledLink>
 
-                {/* Render Gaming Tab */}
-                <StyledLink to="/gaming" isLight={isLightTheme}>
+                <StyledLink
+                  to="/gaming"
+                  isLight={isLightTheme}
+                  isActive={location.pathname === '/gaming'}
+                >
                   <SiYoutubegaming />
                   <List>Gaming</List>
                 </StyledLink>
 
-                {/* Render Saved Videos Tab */}
-                <StyledLink to="/saved-videos" isLight={isLightTheme}>
+                <StyledLink
+                  to="/saved-videos"
+                  isLight={isLightTheme}
+                  isActive={location.pathname === '/saved-videos'}
+                >
                   <RiPlayListAddLine />
                   <List>Saved Videos</List>
                 </StyledLink>
