@@ -75,6 +75,14 @@ export const HomeList = styled.li`
 
   word-wrap: break-word; /* Prevent long words from overflowing */
   overflow: hidden; /* Hide overflowing text */
+  margin-left: 0px;
+`
+export const GameFire = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const Game = styled.div`
+  padding: 10px;
 `
 
 export const InfoRow = styled.div`
@@ -90,7 +98,7 @@ export const InfoRow = styled.div`
 `
 
 export const HomeImg = styled.img`
-  height: 100px;
+  height: 300px;
   width: 200px;
 `
 export const HeadingHome = styled.h1`

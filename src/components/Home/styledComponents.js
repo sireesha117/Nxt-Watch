@@ -21,7 +21,7 @@ export const Loaders = styled.div`
   transform: translate(-50%, -50%); /* Perfect centering */
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-self: center;
   width: auto;
   height: auto;
 `
@@ -53,8 +53,8 @@ export const InputDiv = styled.div`
   align-items: center;
 `
 export const SearchButton = styled.button`
-  border-width: 0px;
-  background-color: transparent;
+  // border-width: 0px;
+  // background-color: transparent;
 `
 
 export const Right = styled.div`
@@ -86,6 +86,14 @@ export const HomeSuccess = styled.ul`
   list-style-type: none; /* Remove bullets */
   padding-left: 0px; /* Remove padding */
   margin: 0px; /* Remove margin */
+  width: 100%;
+`
+
+export const Views = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 `
 export const Ib = styled.p`
   margin-left: 0px;

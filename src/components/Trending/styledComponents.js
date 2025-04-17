@@ -56,7 +56,7 @@ export const HomeData = styled.div`
 `
 export const HomeSuccess = styled.ul`
   display: flex;
-  flex-direction: row; /* Lay cards horizontally */
+  flex-direction: column; /* Lay cards horizontally */
   flex-wrap: wrap; /* Wrap cards to the next row if space runs out */
   justify-content: flex-start; /* Spread cards evenly */
   list-style-type: none; /* Remove bullets */
@@ -68,13 +68,11 @@ export const Ib = styled.p`
 `
 
 export const HomeList = styled.li`
-  width: 220px; /* Set a fixed width for uniform cards */
-  margin: 10px; /* Space between cards */
   display: flex;
-  flex-direction: column; /* Stack content vertically */
-
-  word-wrap: break-word; /* Prevent long words from overflowing */
-  overflow: hidden; /* Hide overflowing text */
+  flex-direction: row;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  marging-left: 0px;
 `
 
 export const InfoRow = styled.div`
@@ -90,13 +88,25 @@ export const InfoRow = styled.div`
 `
 
 export const HomeImg = styled.img`
-  height: 100px;
-  width: 200px;
+  height: 200px;
+  width: 300px;
+  border-radius: 5px;
+  margin-right: 20px;
 `
 export const HeadingHome = styled.h1`
   font-size: 16px; /* Make the font size small but readable */
-  margin: 5px 0; /* Add margin for spacing */
-  word-wrap: break-word; /* Ensure long titles break into multiple lines */
-  max-width: 200px; /* Restrict the width to fit the card layout */
-  text-align: left; /* Align text appropriately */
+`
+export const Views = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+`
+export const Trend = styled.div`
+  display: flex;
+  align-items: center;
+`
+export const Trendings = styled.div`
+  display: flex;
+  flex-direction: column;
 `

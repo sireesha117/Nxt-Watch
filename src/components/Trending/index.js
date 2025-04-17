@@ -1,22 +1,20 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-
-import {IoIosClose} from 'react-icons/io'
+import {BsDot, BsFire} from 'react-icons/bs'
 
 import {formatDistanceToNow} from 'date-fns'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
-  Banner,
-  InfoRow,
   Ib,
+  Trendings,
+  Trend,
+  Views,
   StyledLink,
-  CloseIcon,
   HomeImg,
   HeadingHome,
-  BannerImg,
   Right,
   HomeData,
   HomeSuccess,
@@ -32,8 +30,6 @@ const apiSts = {
 }
 class Trending extends Component {
   state = {
-    close: false,
-
     apiStsData: apiSts.initial,
     homeData: [],
   }
@@ -42,14 +38,14 @@ class Trending extends Component {
     this.getHomeData()
   }
 
-  onCloseIcon = () => {
-    this.setState({close: true})
-  }
-
   getFormattedDate = date => {
     const rawOutput = formatDistanceToNow(new Date(date), {addSuffix: true})
 
-    return rawOutput.replace(/almost |about /g, '')
+    const cleanedOutput = rawOutput.replace(
+      /\bover\b|\balmost\b|\babout\b/g,
+      '',
+    )
+    return cleanedOutput.trim()
   }
 
   getHomeData = async () => {
@@ -99,28 +95,56 @@ class Trending extends Component {
 
       case apiSts.success:
         return (
-          <HomeSuccess>
-            {homeData.map(video => (
-              <StyledLink to={`/videos/${video.id}`}>
-                <HomeList key={video.id}>
-                  <HomeImg src={video.thumbnailUrl} alt={video.title} />
-                  <HeadingHome>{video.title}</HeadingHome>
-                  <Ib>{video.channel.name}</Ib>
-                  <InfoRow>
-                    <span>{video.viewCount} views</span>
-                    <span>{video.publishedAt}</span>
-                  </InfoRow>
-                </HomeList>
-              </StyledLink>
-            ))}
-          </HomeSuccess>
+          <Trendings>
+            <Trend>
+              <BsFire />
+
+              <h1>Trending</h1>
+            </Trend>
+            <HomeSuccess>
+              {homeData.map(video => (
+                <StyledLink to={`/videos/${video.id}`}>
+                  <HomeList key={video.id}>
+                    <HomeImg src={video.thumbnailUrl} alt={video.title} />
+                    <div>
+                      <HeadingHome>{video.title}</HeadingHome>
+                      <Ib>{video.channel.name}</Ib>
+
+                      <Views>
+                        <span>{video.viewCount} views</span>
+                        <BsDot />
+                        <span>{video.publishedAt}</span>
+                      </Views>
+                    </div>
+                  </HomeList>
+                </StyledLink>
+              ))}
+            </HomeSuccess>
+          </Trendings>
         )
 
       case apiSts.failure:
-        return <p>Something went wrong. Please try again.</p> // Show error message for failure case
-
+        return (
+          <WatchContext.Consumer>
+            {value => {
+              const {isLightTheme} = value
+              return (
+                <div>
+                  <img
+                    src={
+                      isLightTheme
+                        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+                        : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                    }
+                    alt="failure view"
+                  />
+                </div>
+              )
+            }}
+          </WatchContext.Consumer>
+        )
       default:
-        return null // Handle the initial state or unexpected cases
+        return null
     }
   }
 
@@ -129,35 +153,13 @@ class Trending extends Component {
       <WatchContext.Consumer>
         {value => {
           const {isLightTheme} = value
-          const {close} = this.state
+
           return (
             <div>
               <Header />
               <Divide>
                 <SideBar />
                 <Right isLight={isLightTheme}>
-                  <div>
-                    {!close && (
-                      <Banner isLight={isLightTheme}>
-                        <div>
-                          <BannerImg
-                            src={
-                              isLightTheme
-                                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-                                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-                            }
-                            alt="logo"
-                          />
-                          <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <button type="button">Get it now</button>
-                        </div>
-                        <CloseIcon onClick={this.onCloseIcon}>
-                          <IoIosClose />
-                        </CloseIcon>
-                      </Banner>
-                    )}
-                  </div>
-
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>

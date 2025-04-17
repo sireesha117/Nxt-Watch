@@ -3,13 +3,14 @@ import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {IoIosClose} from 'react-icons/io'
 import {CiSearch} from 'react-icons/ci'
+import {BsDot} from 'react-icons/bs'
 import {formatDistanceToNow} from 'date-fns'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
   Banner,
-  InfoRow,
+  Views,
   InputDiv,
   SearchButton,
   Ib,
@@ -49,7 +50,7 @@ class Home extends Component {
   }
 
   onUserInput = event => {
-    this.setState({userInput: event.target.value}, this.getHomeData)
+    this.setState({userInput: event.target.value})
   }
 
   getFormattedDate = date => {
@@ -113,10 +114,12 @@ class Home extends Component {
                   <HomeImg src={video.thumbnailUrl} alt={video.title} />
                   <HeadingHome>{video.title}</HeadingHome>
                   <Ib>{video.channel.name}</Ib>
-                  <InfoRow>
+
+                  <Views>
                     <span>{video.viewCount} views</span>
+                    <BsDot />
                     <span>{video.publishedAt}</span>
-                  </InfoRow>
+                  </Views>
                 </HomeList>
               </StyledLink>
             ))}
@@ -124,7 +127,25 @@ class Home extends Component {
         )
 
       case apiSts.failure:
-        return <p>Something went wrong. Please try again.</p>
+        return (
+          <WatchContext.Consumer>
+            {value => {
+              const {isLightTheme} = value
+              return (
+                <div>
+                  <img
+                    src={
+                      isLightTheme
+                        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+                        : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                    }
+                    alt="failure view"
+                  />
+                </div>
+              )
+            }}
+          </WatchContext.Consumer>
+        )
 
       default:
         return null

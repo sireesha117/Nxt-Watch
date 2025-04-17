@@ -1,17 +1,17 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {IoIosClose} from 'react-icons/io'
+
+import {SiYoutubegaming} from 'react-icons/si'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
-  Banner,
   InfoRow,
-  CloseIcon,
   HomeImg,
+  Game,
+  GameFire,
   HeadingHome,
-  BannerImg,
   Right,
   StyledLink,
   HomeData,
@@ -28,18 +28,12 @@ const apiSts = {
 }
 class Gaming extends Component {
   state = {
-    close: false,
-
     apiStsData: apiSts.initial,
     homeData: [],
   }
 
   componentDidMount() {
     this.getHomeData()
-  }
-
-  onCloseIcon = () => {
-    this.setState({close: true})
   }
 
   getHomeData = async () => {
@@ -81,24 +75,49 @@ class Gaming extends Component {
 
       case apiSts.success:
         return (
-          <HomeSuccess>
-            {homeData.map(video => (
-              <StyledLink to={`/videos/${video.id}`}>
-                <HomeList key={video.id}>
-                  <HomeImg src={video.thumbnailUrl} alt={video.title} />
-                  <HeadingHome>{video.title}</HeadingHome>
+          <Game>
+            <GameFire>
+              <SiYoutubegaming />
+              <h1>Gamming</h1>
+            </GameFire>
 
-                  <InfoRow>
-                    <span>{video.viewCount} views</span>
-                  </InfoRow>
-                </HomeList>
-              </StyledLink>
-            ))}
-          </HomeSuccess>
+            <HomeSuccess>
+              {homeData.map(video => (
+                <StyledLink to={`/videos/${video.id}`}>
+                  <HomeList key={video.id}>
+                    <HomeImg src={video.thumbnailUrl} alt={video.title} />
+                    <HeadingHome>{video.title}</HeadingHome>
+
+                    <InfoRow>
+                      <span>{video.viewCount} watching worldwide</span>
+                    </InfoRow>
+                  </HomeList>
+                </StyledLink>
+              ))}
+            </HomeSuccess>
+          </Game>
         )
 
       case apiSts.failure:
-        return <p>Something went wrong. Please try again.</p>
+        return (
+          <WatchContext.Consumer>
+            {value => {
+              const {isLightTheme} = value
+              return (
+                <div>
+                  <img
+                    src={
+                      isLightTheme
+                        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+                        : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                    }
+                    alt="failure view"
+                  />
+                </div>
+              )
+            }}
+          </WatchContext.Consumer>
+        )
 
       default:
         return null
@@ -110,35 +129,13 @@ class Gaming extends Component {
       <WatchContext.Consumer>
         {value => {
           const {isLightTheme} = value
-          const {close} = this.state
+
           return (
             <div>
               <Header />
               <Divide>
                 <SideBar />
                 <Right isLight={isLightTheme}>
-                  <div>
-                    {!close && (
-                      <Banner isLight={isLightTheme}>
-                        <div>
-                          <BannerImg
-                            src={
-                              isLightTheme
-                                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-                                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-                            }
-                            alt="logo"
-                          />
-                          <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <button type="button">Get it now</button>
-                        </div>
-                        <CloseIcon onClick={this.onCloseIcon}>
-                          <IoIosClose />
-                        </CloseIcon>
-                      </Banner>
-                    )}
-                  </div>
-
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>
