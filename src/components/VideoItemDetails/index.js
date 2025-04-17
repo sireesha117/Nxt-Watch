@@ -1,7 +1,9 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-
+import {BiLike, BiDislike} from 'react-icons/bi'
+import {RiPlayListAddLine} from 'react-icons/ri'
+import {BsDot} from 'react-icons/bs'
 import ReactPlayer from 'react-player'
 import {formatDistanceToNow} from 'date-fns'
 import WatchContext from '../WatchContext'
@@ -11,8 +13,15 @@ import SideBar from '../SideBar'
 import {
   Right,
   Divide,
+  Channelimg,
+  Views,
+  ViewLike,
+  Space,
+  VideoItem,
+  LikeIcons,
   DislikeButton,
   LikeButton,
+  Channel,
   SaveButton,
 } from './styledComponents'
 
@@ -43,12 +52,14 @@ class VideoItemDetails extends Component {
   onLike = () => {
     this.setState(prevState => ({
       isLike: !prevState.isLike,
+      isDislike: false, // Deselect Dislike if Like is selected
     }))
   }
 
   onDislike = () => {
     this.setState(prevState => ({
       isDislike: !prevState.isDislike,
+      isLike: false, // Deselect Like if Dislike is selected
     }))
   }
 
@@ -114,24 +125,29 @@ class VideoItemDetails extends Component {
                 videoUrl,
                 viewCount,
                 publishedAt,
+
                 description,
               } = detailArray
 
               return (
-                <div>
+                <VideoItem>
                   <div key={detailArray.id}>
-                    <ReactPlayer url={videoUrl} />
+                    <ReactPlayer url={videoUrl} width="100%" />
                     <h1>{title}</h1>
-                    <div>
-                      <span>{viewCount} views</span>
-                      <span>{publishedAt}</span>
-                      <div>
+                    <ViewLike>
+                      <Views>
+                        <span>{viewCount} views</span>
+                        <BsDot />
+                        <span>{publishedAt}</span>
+                      </Views>
+                      <LikeIcons>
                         <LikeButton
                           isLike={isLike}
                           isLight={isLightTheme}
                           type="button"
                           onClick={this.onLike}
                         >
+                          <BiLike />
                           <p>Like</p>
                         </LikeButton>
                         <DislikeButton
@@ -140,6 +156,7 @@ class VideoItemDetails extends Component {
                           type="button"
                           onClick={this.onDislike}
                         >
+                          <BiDislike />
                           <p>Dislike</p>
                         </DislikeButton>
                         <SaveButton
@@ -148,13 +165,27 @@ class VideoItemDetails extends Component {
                           type="button"
                           onClick={() => onSaved(detailArray)}
                         >
+                          <RiPlayListAddLine />
                           <p>{isSaved ? 'Saved' : 'Save'}</p>
                         </SaveButton>
+                      </LikeIcons>
+                    </ViewLike>
+                    <hr />
+                    <Channel>
+                      <Channelimg
+                        src={detailArray.channel.profileImageUrl}
+                        alt={detailArray.channel.name}
+                      />
+                      <div>
+                        <Space>{detailArray.channel.name}</Space>
+                        <Space>
+                          {detailArray.channel.subscriberCount} subscriber
+                        </Space>
+                        <p>{description}</p>
                       </div>
-                    </div>
-                    <p>{description}</p>
+                    </Channel>
                   </div>
-                </div>
+                </VideoItem>
               )
             }}
           </WatchContext.Consumer>

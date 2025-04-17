@@ -18,7 +18,32 @@ export const LikeButton = styled.button`
     return props.isLight ? 'black' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: transparent;
+`
+
+export const LikeIcons = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+`
+export const Channelimg = styled.img`
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+`
+export const Space = styled.p`
+  margin: 0px;
+  padding: 0px;
+`
+export const Channel = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 `
 
 export const DislikeButton = styled.button`
@@ -29,7 +54,24 @@ export const DislikeButton = styled.button`
     return props.isLight ? 'black' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: transparent;
+`
+export const Views = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+`
+export const VideoItem = styled.div`
+  padding: 20px;
+`
+export const ViewLike = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `
 
 export const SaveButton = styled.button`
@@ -40,5 +82,8 @@ export const SaveButton = styled.button`
     return props.isLight ? 'black' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   background-color: transparent;
 `
