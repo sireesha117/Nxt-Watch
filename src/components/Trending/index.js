@@ -105,7 +105,7 @@ class Trending extends Component {
         return (
           <Trendings>
             <Trend>
-              <BsFire size={30} />
+              <BsFire size={30} color="#ff0000" />
 
               <h1>Trending</h1>
             </Trend>
@@ -113,7 +113,7 @@ class Trending extends Component {
               {homeData.map(video => (
                 <StyledLink to={`/videos/${video.id}`}>
                   <HomeList key={video.id}>
-                    <HomeImg src={video.thumbnailUrl} alt={video.title} />
+                    <HomeImg src={video.thumbnailUrl} alt="video thumbnail" />
                     <div>
                       <HeadingHome>{video.title}</HeadingHome>
                       <Ib>{video.channel.name}</Ib>
@@ -168,7 +168,7 @@ class Trending extends Component {
               <Header />
               <Divide>
                 <SideBar />
-                <Right isLight={isLightTheme}>
+                <Right isLight={isLightTheme} data-testid="trending">
                   <div>
                     {!close && (
                       <Banner isLight={isLightTheme}>

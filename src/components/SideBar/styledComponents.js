@@ -56,6 +56,9 @@ export const UnOrdered = styled.ul`
   list-style-type: none;
   padding-left: 0px;
 `
+export const SidePara = styled.p`
+  font-size: 13px;
+`
 
 export const Footer = styled.div`
   display: flex;
@@ -63,7 +66,6 @@ export const Footer = styled.div`
   align-items: flex-start;
   margin-top: auto; /* Moves footer to the bottom */
   padding-top: 10px;
-  border-top: 1px solid ${props => (props.isLight ? 'gray' : 'white')}; /* Optional styling */
 `
 
 export const Logos = styled.div`

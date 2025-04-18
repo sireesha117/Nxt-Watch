@@ -48,6 +48,18 @@ export const Banner = styled.div`
   color: ${props => (props.isLight ? 'black' : 'black')};
   padding: 10px;
 `
+
+export const Profile = styled.img`
+  height: 30px;
+  width: 30px;
+  margin-top: 10px;
+`
+
+export const ProfileDiv = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+`
 export const InputDiv = styled.div`
   padding: 10px;
   display: flex;
@@ -129,7 +141,7 @@ export const HomeImg = styled.img`
 `
 export const HeadingHome = styled.h1`
   font-size: 16px; /* Make the font size small but readable */
-  margin: 5px 0; /* Add margin for spacing */
+
   word-wrap: break-word; /* Ensure long titles break into multiple lines */
   max-width: 200px; /* Restrict the width to fit the card layout */
   text-align: left; /* Align text appropriately */

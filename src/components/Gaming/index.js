@@ -86,7 +86,7 @@ class Gaming extends Component {
         return (
           <Game>
             <GameFire>
-              <SiYoutubegaming size={30} />
+              <SiYoutubegaming size={30} color="#ff0000" />
               <h1>Gamming</h1>
             </GameFire>
 
@@ -94,7 +94,7 @@ class Gaming extends Component {
               {homeData.map(video => (
                 <StyledLink to={`/videos/${video.id}`}>
                   <HomeList key={video.id}>
-                    <HomeImg src={video.thumbnailUrl} alt={video.title} />
+                    <HomeImg src={video.thumbnailUrl} alt="video thumbnail" />
                     <HeadingHome>{video.title}</HeadingHome>
 
                     <InfoRow>
@@ -145,7 +145,7 @@ class Gaming extends Component {
               <Header />
               <Divide>
                 <SideBar />
-                <Right isLight={isLightTheme}>
+                <Right isLight={isLightTheme} data-testid="gaming">
                   <div>
                     {!close && (
                       <Banner isLight={isLightTheme}>

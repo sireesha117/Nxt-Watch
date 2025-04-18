@@ -11,6 +11,8 @@ import {
   Divide,
   Banner,
   Views,
+  ProfileDiv,
+  Profile,
   InputDiv,
   SearchButton,
   Ib,
@@ -111,8 +113,15 @@ class Home extends Component {
             {homeData.map(video => (
               <StyledLink to={`/videos/${video.id}`}>
                 <HomeList key={video.id}>
-                  <HomeImg src={video.thumbnailUrl} alt="video thumb" />
-                  <HeadingHome>{video.title}</HeadingHome>
+                  <HomeImg src={video.thumbnailUrl} alt="video thumbnail" />
+                  <ProfileDiv>
+                    <Profile
+                      src={video.channel.profileImageUrl}
+                      alt="channel logo"
+                    />
+                    <HeadingHome>{video.title}</HeadingHome>
+                  </ProfileDiv>
+
                   <Ib>{video.channel.name}</Ib>
 
                   <Views>
@@ -163,7 +172,7 @@ class Home extends Component {
               <Header />
               <Divide>
                 <SideBar />
-                <Right isLight={isLightTheme}>
+                <Right isLight={isLightTheme} data-testid="home">
                   <div>
                     {!close && (
                       <Banner isLight={isLightTheme}>

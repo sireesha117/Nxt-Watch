@@ -13,9 +13,9 @@ export const Right = styled.div`
 export const LikeButton = styled.button`
   color: ${props => {
     if (props.isLike) {
-      return '#4f46e5' // Blue color when liked
+      return '#2563eb' // Blue color when liked
     }
-    return props.isLight ? 'black' : 'white' // Theme-based fallback
+    return props.isLight ? '64748b' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
   display: flex;
@@ -40,6 +40,9 @@ export const Space = styled.p`
   margin: 0px;
   padding: 0px;
 `
+export const VideoHead = styled.h1`
+  font-size: 20px;
+`
 export const Channel = styled.div`
   display: flex;
   flex-direction: row;
@@ -49,9 +52,9 @@ export const Channel = styled.div`
 export const DislikeButton = styled.button`
   color: ${props => {
     if (props.isDislike) {
-      return '#4f46e5' // Blue color when disliked
+      return '#2563eb' // Blue color when disliked
     }
-    return props.isLight ? 'black' : 'white' // Theme-based fallback
+    return props.isLight ? '64748b' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
   display: flex;
@@ -77,9 +80,9 @@ export const ViewLike = styled.div`
 export const SaveButton = styled.button`
   color: ${props => {
     if (props.isSaved) {
-      return '#4f46e5' // Blue color when saved
+      return '#2563eb' // Blue color when saved
     }
-    return props.isLight ? 'black' : 'white' // Theme-based fallback
+    return props.isLight ? '64748b' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
   display: flex;

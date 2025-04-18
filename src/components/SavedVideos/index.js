@@ -21,7 +21,7 @@ const SavedVideos = () => (
           <Header />
           <Divide>
             <SideBar />
-            <Right isLight={isLightTheme}>
+            <Right isLight={isLightTheme} data-testid="savedVideos">
               {savedVideos.length === 0 ? (
                 <EmptyDiv>
                   <EmptyImage

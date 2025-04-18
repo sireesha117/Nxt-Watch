@@ -13,6 +13,7 @@ import {
   Footer,
   List,
   HeadData,
+  SidePara,
   StyledLink,
   Logos,
   LogoImgs,
@@ -81,7 +82,9 @@ class SideBar extends Component {
                     alt="linked in logo"
                   />
                 </Logos>
-                <p>Enjoy! Now to see your channels & recommendations!</p>
+                <SidePara>
+                  Enjoy! Now to see your channels & recommendations!
+                </SidePara>
               </Footer>
             </SideBarContainer>
           )

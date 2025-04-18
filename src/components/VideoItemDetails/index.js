@@ -13,6 +13,7 @@ import SideBar from '../SideBar'
 import {
   Right,
   Divide,
+  VideoHead,
   Channelimg,
   Views,
   ViewLike,
@@ -133,7 +134,7 @@ class VideoItemDetails extends Component {
                 <VideoItem>
                   <div key={detailArray.id}>
                     <ReactPlayer url={videoUrl} width="100%" />
-                    <h1>{title}</h1>
+                    <VideoHead>{title}</VideoHead>
                     <ViewLike>
                       <Views>
                         <span>{viewCount} views</span>
@@ -210,7 +211,7 @@ class VideoItemDetails extends Component {
               <Header />
               <Divide>
                 <SideBar />
-                <Right isLight={isLightTheme}>
+                <Right isLight={isLightTheme} data-testid="videoItemDetails">
                   <div>{this.renderVideoData()}</div>
                 </Right>
               </Divide>
