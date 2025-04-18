@@ -14,7 +14,14 @@ export const StyledLink = styled(Link)`
     color: inherit; /* Ensure active state does not change the color */
   }
 `
-
+export const Loaders = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  heiht: 100%;
+  align-self: center;
+`
 export const Divide = styled.div`
   display: flex;
   flex-direction: row;
@@ -36,7 +43,7 @@ export const Banner = styled.div`
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #ebebeb' : 'black')};
+  background-color: ${props => (props.isLight ? ' #f9f9f9' : 'black')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
 `

@@ -15,15 +15,17 @@ export const StyledLink = styled(Link)`
   }
 `
 export const Loaders = styled.div`
-  position: absolute; /* Absolute positioning */
+  position: absolute;
   top: 50%; /* Center vertically */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, -50%); /* Perfect centering */
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-self: center;
+  aligh-items: center;
   width: auto;
-  height: auto;
+  height: 100%;
 `
 
 export const Divide = styled.div`
@@ -59,7 +61,7 @@ export const SearchButton = styled.button`
 
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #ebebeb' : 'black')};
+  background-color: ${props => (props.isLight ? ' #f9f9f9' : 'black')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
   min-height: 100vh;

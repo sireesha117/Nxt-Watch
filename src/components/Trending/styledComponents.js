@@ -36,7 +36,7 @@ export const Banner = styled.div`
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #ebebeb' : 'black')};
+  background-color: ${props => (props.isLight ? ' #f9f9f9' : 'black')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
 `

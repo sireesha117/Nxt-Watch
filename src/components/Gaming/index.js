@@ -1,15 +1,19 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-
+import {IoIosClose} from 'react-icons/io'
 import {SiYoutubegaming} from 'react-icons/si'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
   InfoRow,
+  CloseIcon,
+  BannerImg,
   HomeImg,
+  Banner,
   Game,
+  Loaders,
   GameFire,
   HeadingHome,
   Right,
@@ -28,12 +32,17 @@ const apiSts = {
 }
 class Gaming extends Component {
   state = {
+    close: false,
     apiStsData: apiSts.initial,
     homeData: [],
   }
 
   componentDidMount() {
     this.getHomeData()
+  }
+
+  onCloseIcon = () => {
+    this.setState({close: true})
   }
 
   getHomeData = async () => {
@@ -68,9 +77,9 @@ class Gaming extends Component {
     switch (apiStsData) {
       case apiSts.inProgress:
         return (
-          <div className="loader-container" data-testid="loader">
+          <Loaders className="loader-container" data-testid="loader">
             <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-          </div>
+          </Loaders>
         )
 
       case apiSts.success:
@@ -125,6 +134,7 @@ class Gaming extends Component {
   }
 
   render() {
+    const {close} = this.state
     return (
       <WatchContext.Consumer>
         {value => {
@@ -136,6 +146,27 @@ class Gaming extends Component {
               <Divide>
                 <SideBar />
                 <Right isLight={isLightTheme}>
+                  <div>
+                    {!close && (
+                      <Banner isLight={isLightTheme}>
+                        <div>
+                          <BannerImg
+                            src={
+                              isLightTheme
+                                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+                                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+                            }
+                            alt="logo"
+                          />
+                          <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
+                          <button type="button">Get it now</button>
+                        </div>
+                        <CloseIcon onClick={this.onCloseIcon}>
+                          <IoIosClose />
+                        </CloseIcon>
+                      </Banner>
+                    )}
+                  </div>
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>

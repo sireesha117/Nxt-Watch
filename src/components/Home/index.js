@@ -111,7 +111,7 @@ class Home extends Component {
             {homeData.map(video => (
               <StyledLink to={`/videos/${video.id}`}>
                 <HomeList key={video.id}>
-                  <HomeImg src={video.thumbnailUrl} alt={video.title} />
+                  <HomeImg src={video.thumbnailUrl} alt="video thumb" />
                   <HeadingHome>{video.title}</HeadingHome>
                   <Ib>{video.channel.name}</Ib>
 
@@ -191,7 +191,11 @@ class Home extends Component {
                       value={userInput}
                       onChange={this.onUserInput}
                     />
-                    <SearchButton type="button" onClick={this.getHomeData}>
+                    <SearchButton
+                      data-testid="searchButton"
+                      type="button"
+                      onClick={this.getHomeData}
+                    >
                       <CiSearch />
                     </SearchButton>
                   </InputDiv>

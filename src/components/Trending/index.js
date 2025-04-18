@@ -2,7 +2,7 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BsDot, BsFire} from 'react-icons/bs'
-
+import {IoIosClose} from 'react-icons/io'
 import {formatDistanceToNow} from 'date-fns'
 import Header from '../Header'
 import SideBar from '../SideBar'
@@ -11,6 +11,9 @@ import {
   Ib,
   Trendings,
   Trend,
+  Banner,
+  BannerImg,
+  CloseIcon,
   Views,
   StyledLink,
   HomeImg,
@@ -32,10 +35,15 @@ class Trending extends Component {
   state = {
     apiStsData: apiSts.initial,
     homeData: [],
+    close: false,
   }
 
   componentDidMount() {
     this.getHomeData()
+  }
+
+  onCloseIcon = () => {
+    this.setState({close: true})
   }
 
   getFormattedDate = date => {
@@ -149,6 +157,7 @@ class Trending extends Component {
   }
 
   render() {
+    const {close} = this.state
     return (
       <WatchContext.Consumer>
         {value => {
@@ -160,6 +169,27 @@ class Trending extends Component {
               <Divide>
                 <SideBar />
                 <Right isLight={isLightTheme}>
+                  <div>
+                    {!close && (
+                      <Banner isLight={isLightTheme}>
+                        <div>
+                          <BannerImg
+                            src={
+                              isLightTheme
+                                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
+                                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
+                            }
+                            alt="logo"
+                          />
+                          <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
+                          <button type="button">Get it now</button>
+                        </div>
+                        <CloseIcon onClick={this.onCloseIcon}>
+                          <IoIosClose />
+                        </CloseIcon>
+                      </Banner>
+                    )}
+                  </div>
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>

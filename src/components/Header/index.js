@@ -37,6 +37,7 @@ const Header = () => (
             <div>
               {isLightTheme ? (
                 <ThemeButton
+                  data-testid="theme"
                   isLight={isLightTheme}
                   type="button"
                   onClick={onClickThemeBtn}
