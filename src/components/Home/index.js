@@ -11,6 +11,7 @@ import {
   Divide,
   GetIt,
   Banner,
+  SearchInput,
   Views,
   ProfileDiv,
   Profile,
@@ -140,16 +141,17 @@ class Home extends Component {
                       src={video.channel.profileImageUrl}
                       alt="channel logo"
                     />
-                    <HeadingHome>{video.title}</HeadingHome>
+                    <div>
+                      <HeadingHome>{video.title}</HeadingHome>
+                      <Ib>{video.channel.name}</Ib>
+
+                      <Views>
+                        <p>{video.viewCount} views</p>
+                        <BsDot />
+                        <p>{video.publishedAt}</p>
+                      </Views>
+                    </div>
                   </ProfileDiv>
-
-                  <Ib>{video.channel.name}</Ib>
-
-                  <Views>
-                    <p>{video.viewCount} views</p>
-                    <BsDot />
-                    <p>{video.publishedAt}</p>
-                  </Views>
                 </HomeList>
               </StyledLink>
             ))}
@@ -220,10 +222,11 @@ class Home extends Component {
                     )}
                   </div>
                   <InputDiv>
-                    <input
+                    <SearchInput
                       type="search"
                       value={userInput}
                       onChange={this.onUserInput}
+                      placeholder="Search"
                     />
                     <SearchButton
                       data-testid="searchButton"

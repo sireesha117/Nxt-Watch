@@ -52,13 +52,15 @@ export const Banner = styled.div`
 export const Profile = styled.img`
   height: 30px;
   width: 30px;
-  margin-top: 10px;
+  margin-top: 0px;
+  font-size: 10px;
 `
 
 export const ProfileDiv = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  font-size: 15px;
 `
 export const InputDiv = styled.div`
   padding: 10px;
@@ -69,6 +71,8 @@ export const InputDiv = styled.div`
 export const SearchButton = styled.button`
   // border-width: 0px;
   // background-color: transparent;
+  padding: 4.5px;
+  width: 50px;
 `
 
 export const Right = styled.div`
@@ -77,6 +81,7 @@ export const Right = styled.div`
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
   min-height: 100vh;
+  font-family: Roboto;
 `
 export const GetIt = styled.button`
   border-style: solid;
@@ -97,6 +102,11 @@ export const BannerImg = styled.img`
   width: 90px;
   height: 40px;
 `
+export const SearchInput = styled.input`
+  padding: 5px;
+
+  width: 300px;
+`
 export const HomeData = styled.div`
   font-family: Roboto;
 `
@@ -116,9 +126,11 @@ export const Views = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
+  margin-top: 0px;
 `
 export const Ib = styled.p`
   margin-left: 0px;
+  margin-bottom: 0px;
 `
 
 export const HomeList = styled.li`
@@ -145,11 +157,12 @@ export const InfoRow = styled.div`
 
 export const HomeImg = styled.img`
   height: 100px;
-  width: 200px;
+  // width: 200px;
+  width: 100%;
 `
 export const HeadingHome = styled.p`
-  font-size: 16px; /* Make the font size small but readable */
-
+  font-size: 15px; /* Make the font size small but readable */
+  margin-top: 0px;
   word-wrap: break-word; /* Ensure long titles break into multiple lines */
   max-width: 200px; /* Restrict the width to fit the card layout */
   text-align: left; /* Align text appropriately */

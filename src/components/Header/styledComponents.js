@@ -5,6 +5,7 @@ export const HeadContainer = styled.nav`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-family: Roboto;
   padding: 10px;
   background-color: ${props => (props.isLight ? 'white' : '#313131')};
   color: ${props => (props.isLight ? 'black' : 'white')};

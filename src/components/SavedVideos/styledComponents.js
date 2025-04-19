@@ -27,6 +27,7 @@ export const Right = styled.div`
   padding: 10px;
   background-color: ${props => (props.isLight ? ' #f9f9f9' : '#181818')};
   color: ${props => (props.isLight ? 'black' : 'white')};
+  font-family: Roboto;
   width: 100%;
   display: flex;
   flex-direction: column;

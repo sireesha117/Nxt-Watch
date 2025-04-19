@@ -9,6 +9,7 @@ export const Right = styled.div`
   background-color: ${props => (props.isLight ? ' #f9f9f9' : '#181818')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
+  font-family: Roboto;
 `
 export const LikeButton = styled.button`
   color: ${props => {

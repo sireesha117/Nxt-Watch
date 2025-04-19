@@ -41,6 +41,7 @@ export const HeadData = styled.p`
 `
 export const SideBarContainer = styled.div`
   display: flex;
+  font-family: Roboto;
   flex-direction: column;
   justify-content: space-between;
   width: 15%; /* Sidebar width */
