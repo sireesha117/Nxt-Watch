@@ -33,17 +33,12 @@ const apiSts = {
 }
 class Gaming extends Component {
   state = {
-    close: false,
     apiStsData: apiSts.initial,
     homeData: [],
   }
 
   componentDidMount() {
     this.getHomeData()
-  }
-
-  onCloseIcon = () => {
-    this.setState({close: true})
   }
 
   getHomeData = async () => {
@@ -135,11 +130,10 @@ class Gaming extends Component {
   }
 
   render() {
-    const {close} = this.state
     return (
       <WatchContext.Consumer>
         {value => {
-          const {isLightTheme} = value
+          const {isLightTheme, close, onCloseIcon} = value
 
           return (
             <div>
@@ -158,7 +152,7 @@ class Gaming extends Component {
                           <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
                           <GetIt type="button">Get it now</GetIt>
                         </div>
-                        <CloseIcon onClick={this.onCloseIcon}>
+                        <CloseIcon onClick={onCloseIcon}>
                           <IoIosClose />
                         </CloseIcon>
                       </Banner>

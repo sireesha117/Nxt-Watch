@@ -13,10 +13,14 @@ import WatchContext from './components/WatchContext'
 
 // Replace your code here
 class App extends Component {
-  state = {isLightTheme: true, savedVideos: []}
+  state = {isLightTheme: true, savedVideos: [], close: false}
 
   onChangeTheme = () => {
     this.setState(prevState => ({isLightTheme: !prevState.isLightTheme}))
+  }
+
+  onCloseIcon = () => {
+    this.setState({close: true})
   }
 
   onSaved = savedResult => {
@@ -38,14 +42,16 @@ class App extends Component {
   }
 
   render() {
-    const {isLightTheme, savedVideos} = this.state
+    const {isLightTheme, savedVideos, close} = this.state
     return (
       <WatchContext.Provider
         value={{
           isLightTheme,
+          close,
           onChangeTheme: this.onChangeTheme,
           savedVideos,
           onSaved: this.onSaved,
+          onCloseIcon: this.onCloseIcon,
         }}
       >
         <Switch>

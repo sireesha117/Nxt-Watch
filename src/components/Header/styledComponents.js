@@ -7,6 +7,8 @@ export const HeadContainer = styled.nav`
   align-items: center;
   font-family: Roboto;
   padding: 10px;
+  position: sticky;
+  top: 0;
   background-color: ${props => (props.isLight ? 'white' : '#313131')};
   color: ${props => (props.isLight ? 'black' : 'white')};
 `

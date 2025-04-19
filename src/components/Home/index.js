@@ -39,7 +39,7 @@ const apiSts = {
 }
 class Home extends Component {
   state = {
-    close: false,
+    // close: false,
     userInput: '',
     apiStsData: apiSts.initial,
     homeData: [],
@@ -53,9 +53,9 @@ class Home extends Component {
     this.getHomeData()
   }
 
-  onCloseIcon = () => {
-    this.setState({close: true})
-  }
+  // onCloseIcon = () => {
+  //   this.setState({close: true})
+  // }
 
   onUserInput = event => {
     this.setState({userInput: event.target.value})
@@ -193,8 +193,8 @@ class Home extends Component {
     return (
       <WatchContext.Consumer>
         {value => {
-          const {isLightTheme} = value
-          const {close, userInput} = this.state
+          const {isLightTheme, close, onCloseIcon} = value
+          const {userInput} = this.state
           return (
             <div>
               <Header />
@@ -212,10 +212,7 @@ class Home extends Component {
                           <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
                           <GetIt type="button">GET IT NOW</GetIt>
                         </div>
-                        <CloseIcon
-                          data-testid="close"
-                          onClick={this.onCloseIcon}
-                        >
+                        <CloseIcon data-testid="close" onClick={onCloseIcon}>
                           <IoIosClose />
                         </CloseIcon>
                       </Banner>

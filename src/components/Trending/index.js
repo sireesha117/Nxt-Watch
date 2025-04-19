@@ -36,15 +36,10 @@ class Trending extends Component {
   state = {
     apiStsData: apiSts.initial,
     homeData: [],
-    close: false,
   }
 
   componentDidMount() {
     this.getHomeData()
-  }
-
-  onCloseIcon = () => {
-    this.setState({close: true})
   }
 
   getFormattedDate = date => {
@@ -158,11 +153,10 @@ class Trending extends Component {
   }
 
   render() {
-    const {close} = this.state
     return (
       <WatchContext.Consumer>
         {value => {
-          const {isLightTheme} = value
+          const {isLightTheme, close, onCloseIcon} = value
 
           return (
             <div>
@@ -181,7 +175,7 @@ class Trending extends Component {
                           <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
                           <GetIt type="button">Get it now</GetIt>
                         </div>
-                        <CloseIcon onClick={this.onCloseIcon}>
+                        <CloseIcon onClick={onCloseIcon}>
                           <IoIosClose />
                         </CloseIcon>
                       </Banner>

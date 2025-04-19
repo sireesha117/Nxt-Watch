@@ -43,7 +43,16 @@ const Logout = props => (
               <PopupContainer isLight={isLightTheme}>
                 <PopupMessage>Are you sure, you want to logout?</PopupMessage>
                 <ButtonContainer>
-                  <CancelButton onClick={close}>Cancel</CancelButton>
+                  <CancelButton
+                    onClick={close}
+                    style={{
+                      backgroundColor: 'transparent',
+                      color: isLightTheme ? '#3b82f6' : 'white',
+                      borderColor: isLightTheme ? '#3b82f6' : 'white',
+                    }}
+                  >
+                    Cancel
+                  </CancelButton>
                   <ConfirmButton onClick={onLogout}>Confirm</ConfirmButton>
                 </ButtonContainer>
               </PopupContainer>
