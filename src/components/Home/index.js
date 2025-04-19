@@ -9,12 +9,15 @@ import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
+  EmptyRetry,
+  EmptyHomeDiv,
   GetIt,
   Banner,
   SearchInput,
   Views,
   ProfileDiv,
   Profile,
+  EmptyImg,
   InputDiv,
   SearchButton,
   Ib,
@@ -117,17 +120,17 @@ class Home extends Component {
         if (homeData.length === 0) {
           // Handle the case when videos list is empty
           return (
-            <div>
-              <img
+            <EmptyHomeDiv>
+              <EmptyImg
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png " // Update with the correct URL for "No Videos view image"
                 alt="no videos"
               />
               <h1>No Search results found</h1>
               <p>Try different key words or remove search filter</p>
-              <button type="button" onClick={this.onRetry}>
+              <EmptyRetry type="button" onClick={this.onRetry}>
                 Retry
-              </button>
-            </div>
+              </EmptyRetry>
+            </EmptyHomeDiv>
           )
         }
         return (

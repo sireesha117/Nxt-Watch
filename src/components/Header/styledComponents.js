@@ -9,6 +9,7 @@ export const HeadContainer = styled.nav`
   padding: 10px;
   position: sticky;
   top: 0;
+  z-index: 1;
   background-color: ${props => (props.isLight ? 'white' : '#313131')};
   color: ${props => (props.isLight ? 'black' : 'white')};
 `

@@ -47,6 +47,7 @@ export const Banner = styled.div`
   position: relative; /* Use relative positioning for the Banner */
   color: ${props => (props.isLight ? 'black' : 'black')};
   padding: 10px;
+  z-index: 0;
 `
 
 export const Profile = styled.img`
@@ -166,4 +167,20 @@ export const HeadingHome = styled.p`
   word-wrap: break-word; /* Ensure long titles break into multiple lines */
   max-width: 200px; /* Restrict the width to fit the card layout */
   text-align: left; /* Align text appropriately */
+`
+export const EmptyImg = styled.img`
+  height: 200px;
+  width: 200px;
+`
+export const EmptyHomeDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+export const EmptyRetry = styled.button`
+  color: white;
+  background-color: #00306e;
+  border-radius: 5px;
+  border-width: 0px;
+  padding: 5px;
 `

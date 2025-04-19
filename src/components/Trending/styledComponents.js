@@ -33,6 +33,7 @@ export const Banner = styled.div`
   position: relative; /* Use relative positioning for the Banner */
   color: ${props => (props.isLight ? 'black' : 'black')};
   font-family: Roboto;
+  z-index: 0;
   padding: 10px;
 `
 export const Right = styled.div`
