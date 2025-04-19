@@ -38,12 +38,12 @@ export const Banner = styled.div`
   width: 100%; /* Take the full width of the container */
   height: 200px; /* Specify the height of the banner */
   position: relative; /* Use relative positioning for the Banner */
-  color: ${props => (props.isLight ? 'black' : 'white')};
+  color: ${props => (props.isLight ? 'black' : 'black')};
   padding: 10px;
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #f9f9f9' : 'black')};
+  background-color: ${props => (props.isLight ? ' #f9f9f9' : '#181818')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
 `
@@ -108,7 +108,16 @@ export const HomeImg = styled.img`
   height: 300px;
   width: 200px;
 `
-export const HeadingHome = styled.h1`
+
+export const GetIt = styled.button`
+  border-style: solid;
+  border-color: #1e293b;
+  color: #1e293b;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 5px;
+`
+export const HeadingHome = styled.p`
   font-size: 16px; /* Make the font size small but readable */
   margin: 5px 0; /* Add margin for spacing */
   word-wrap: break-word; /* Ensure long titles break into multiple lines */

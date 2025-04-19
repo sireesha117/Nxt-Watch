@@ -8,6 +8,7 @@ import SideBar from '../SideBar'
 import {
   Divide,
   InfoRow,
+  GetIt,
   CloseIcon,
   BannerImg,
   HomeImg,
@@ -98,7 +99,7 @@ class Gaming extends Component {
                     <HeadingHome>{video.title}</HeadingHome>
 
                     <InfoRow>
-                      <span>{video.viewCount} watching worldwide</span>
+                      <p>{video.viewCount} watching worldwide</p>
                     </InfoRow>
                   </HomeList>
                 </StyledLink>
@@ -151,15 +152,11 @@ class Gaming extends Component {
                       <Banner isLight={isLightTheme}>
                         <div>
                           <BannerImg
-                            src={
-                              isLightTheme
-                                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-                                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-                            }
+                            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                             alt="logo"
                           />
                           <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <button type="button">Get it now</button>
+                          <GetIt type="button">Get it now</GetIt>
                         </div>
                         <CloseIcon onClick={this.onCloseIcon}>
                           <IoIosClose />

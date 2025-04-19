@@ -1,11 +1,12 @@
-import {Link} from 'react-router-dom'
+import {BsDot} from 'react-icons/bs'
 import Header from '../Header'
-
 import SideBar from '../SideBar'
 
 import WatchContext from '../WatchContext'
 import {
   Right,
+  Row,
+  StyledLink,
   Divide,
   EmptyImage,
   EmptyDiv,
@@ -39,7 +40,7 @@ const SavedVideos = () => (
                   <h1>Saved Videos</h1>
                   <UlSaved>
                     {savedVideos.map(eachItem => (
-                      <Link to={`/videos/${eachItem.id}`}>
+                      <StyledLink to={`/videos/${eachItem.id}`}>
                         <LiSaved key={eachItem.id}>
                           <SavedImg
                             src={eachItem.thumbnailUrl}
@@ -48,13 +49,14 @@ const SavedVideos = () => (
                           <div>
                             <p>{eachItem.title}</p>
                             <p>{eachItem.channel.name}</p>
-                            <div>
+                            <Row>
                               <p>{eachItem.viewCount} views</p>
+                              <BsDot />
                               <p>{eachItem.publishedAt}</p>
-                            </div>
+                            </Row>
                           </div>
                         </LiSaved>
-                      </Link>
+                      </StyledLink>
                     ))}
                   </UlSaved>
                 </div>

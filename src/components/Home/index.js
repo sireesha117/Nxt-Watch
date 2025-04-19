@@ -9,6 +9,7 @@ import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
+  GetIt,
   Banner,
   Views,
   ProfileDiv,
@@ -203,15 +204,11 @@ class Home extends Component {
                       <Banner isLight={isLightTheme} data-testid="banner">
                         <div>
                           <BannerImg
-                            src={
-                              isLightTheme
-                                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-                                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-                            }
+                            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                             alt="nxt watch logo"
                           />
                           <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <button type="button">GET IT NOW</button>
+                          <GetIt type="button">GET IT NOW</GetIt>
                         </div>
                         <CloseIcon
                           data-testid="close"

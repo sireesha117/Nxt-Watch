@@ -34,7 +34,7 @@ export const InputEle = styled.input`
 `
 export const LoginButton = styled.button`
   width: 100%;
-  color: white;
+  color: '#ffffff';
   border-radius: 5px;
   background-color: #3b82f6;
   border-width: 0px;

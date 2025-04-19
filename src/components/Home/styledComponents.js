@@ -73,10 +73,18 @@ export const SearchButton = styled.button`
 
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #f9f9f9' : 'black')};
+  background-color: ${props => (props.isLight ? ' #f9f9f9' : '#181818')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
   min-height: 100vh;
+`
+export const GetIt = styled.button`
+  border-style: solid;
+  border-color: #1e293b;
+  color: #1e293b;
+  border-radius: 5px;
+  background-color: transparent;
+  padding: 5px;
 `
 
 export const CloseIcon = styled.button`

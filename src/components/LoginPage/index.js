@@ -67,7 +67,7 @@ class LoginPage extends Component {
         <LoginCard>
           <LogoImg
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-            alt="logo"
+            alt="website logo"
           />
           <form onSubmit={this.onSubmitForm}>
             <div>

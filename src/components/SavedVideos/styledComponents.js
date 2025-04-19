@@ -1,12 +1,31 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
+export const StyledLink = styled(Link)`
+  text-decoration: none; /* Remove underline */
+  color: inherit; /* Ensure it inherits the parent element's color */
+  &:visited {
+    color: inherit; /* Prevent the visited link color from turning purple */
+  }
+  &:hover {
+    text-decoration: none; /* Ensure no underline on hover */
+  }
+  &:active {
+    color: inherit; /* Ensure active state does not change the color */
+  }
+`
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
 export const Divide = styled.div`
   display: flex;
   flex-direction: row;
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #f9f9f9' : 'black')};
+  background-color: ${props => (props.isLight ? ' #f9f9f9' : '#181818')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
   display: flex;
@@ -34,7 +53,7 @@ export const LiSaved = styled.li`
   display: flex;
   flex-direction: row;
   margin-left: 0px;
-  align-items: center;
+  align-items: flex-start;
 `
 export const SavedImg = styled.img`
   height: 200px;

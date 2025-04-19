@@ -9,6 +9,7 @@ import SideBar from '../SideBar'
 import {
   Divide,
   Ib,
+  GetIt,
   Trendings,
   Trend,
   Banner,
@@ -119,9 +120,9 @@ class Trending extends Component {
                       <Ib>{video.channel.name}</Ib>
 
                       <Views>
-                        <span>{video.viewCount} views</span>
+                        <p>{video.viewCount} views</p>
                         <BsDot />
-                        <span>{video.publishedAt}</span>
+                        <p>{video.publishedAt}</p>
                       </Views>
                     </div>
                   </HomeList>
@@ -174,15 +175,11 @@ class Trending extends Component {
                       <Banner isLight={isLightTheme}>
                         <div>
                           <BannerImg
-                            src={
-                              isLightTheme
-                                ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
-                                : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
-                            }
+                            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
                             alt="logo"
                           />
                           <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <button type="button">Get it now</button>
+                          <GetIt type="button">Get it now</GetIt>
                         </div>
                         <CloseIcon onClick={this.onCloseIcon}>
                           <IoIosClose />

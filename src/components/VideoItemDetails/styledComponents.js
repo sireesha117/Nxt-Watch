@@ -6,7 +6,7 @@ export const Divide = styled.div`
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #f9f9f9' : 'black')};
+  background-color: ${props => (props.isLight ? ' #f9f9f9' : '#181818')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: 100%;
 `
