@@ -45,9 +45,14 @@ export const Banner = styled.div`
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? ' #f9f9f9' : '#181818')};
+  background-color: ${props => (props.isLight ? '#f9f9f9' : '#181818')};
   color: ${props => (props.isLight ? 'black' : 'white')};
-  width: 100%;
+  width: calc(100% - 15%); /* Subtract sidebar's width from the total width */
+  margin-left: 15%; /* Same as the sidebar's width */
+  min-height: calc(100vh - 70px); /* Adjust for header height */
+  font-family: Roboto;
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  position: relative;
 `
 
 export const CloseIcon = styled.button`

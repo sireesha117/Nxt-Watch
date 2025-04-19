@@ -33,6 +33,13 @@ export const Right = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+
+  width: calc(100% - 15%); /* Subtract sidebar's width from the total width */
+  margin-left: 15%; /* Same as the sidebar's width */
+  min-height: calc(100vh - 70px); /* Adjust for header height */
+
+  overflow-y: auto; /* Allow vertical scrolling if content overflows */
+  position: relative;
 `
 export const EmptyImage = styled.img`
   height: 350px;

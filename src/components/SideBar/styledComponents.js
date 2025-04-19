@@ -49,8 +49,11 @@ export const SideBarContainer = styled.div`
   background-color: ${props => (props.isLight ? 'white' : ' #313131')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   height: 100vh; /* Sidebar spans full viewport height */
-  position: sticky; /* Keeps the sidebar fixed when scrolling */
-  top: 0; /* Ensures it sticks to the top */
+
+  left: 0;
+  height: calc(100vh - 70px); /* Adjust based on header height */
+  position: fixed; /* Sidebar stays fixed and does not scroll */
+  top: 70px;
 `
 
 export const UnOrdered = styled.ul`
