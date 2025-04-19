@@ -36,7 +36,7 @@ export const List = styled.li`
     props.isLight ? 'black' : 'white'}; /* Corrected ternary syntax */
 `
 
-export const HeadData = styled.h1`
+export const HeadData = styled.p`
   font-size: 15px;
 `
 export const SideBarContainer = styled.div`

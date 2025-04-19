@@ -15,7 +15,7 @@ export const LikeButton = styled.button`
     if (props.isLike) {
       return '#2563eb' // Blue color when liked
     }
-    return props.isLight ? '64748b' : 'white' // Theme-based fallback
+    return props.isLight ? '#64748b' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
   display: flex;
@@ -40,7 +40,7 @@ export const Space = styled.p`
   margin: 0px;
   padding: 0px;
 `
-export const VideoHead = styled.h1`
+export const VideoHead = styled.p`
   font-size: 20px;
 `
 export const Channel = styled.div`
@@ -54,7 +54,7 @@ export const DislikeButton = styled.button`
     if (props.isDislike) {
       return '#2563eb' // Blue color when disliked
     }
-    return props.isLight ? '64748b' : 'white' // Theme-based fallback
+    return props.isLight ? '#64748b' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
   display: flex;
@@ -82,7 +82,7 @@ export const SaveButton = styled.button`
     if (props.isSaved) {
       return '#2563eb' // Blue color when saved
     }
-    return props.isLight ? '64748b' : 'white' // Theme-based fallback
+    return props.isLight ? '#64748b' : 'white' // Theme-based fallback
   }};
   border-width: 0px;
   display: flex;

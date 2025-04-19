@@ -1,5 +1,8 @@
+import {Link} from 'react-router-dom'
 import Header from '../Header'
+
 import SideBar from '../SideBar'
+
 import WatchContext from '../WatchContext'
 import {
   Right,
@@ -29,23 +32,29 @@ const SavedVideos = () => (
                     alt="no saved videos"
                   />
                   <h1>No saved videos found</h1>
-                  <p>You can save your videos while watching them</p>
+                  <p>Save your videos by clicking a button</p>
                 </EmptyDiv>
               ) : (
                 <div>
+                  <h1>Saved Videos</h1>
                   <UlSaved>
                     {savedVideos.map(eachItem => (
-                      <LiSaved key={eachItem.id}>
-                        <SavedImg src={eachItem.thumbnailUrl} alt="Thumbnail" />
-                        <div>
-                          <h1>{eachItem.title}</h1>
-                          <p>{eachItem.channel.name}</p>
+                      <Link to={`/videos/${eachItem.id}`}>
+                        <LiSaved key={eachItem.id}>
+                          <SavedImg
+                            src={eachItem.thumbnailUrl}
+                            alt="video thumbnail"
+                          />
                           <div>
-                            <span>{eachItem.viewCount} views</span>
-                            <span>{eachItem.publishedAt}</span>
+                            <p>{eachItem.title}</p>
+                            <p>{eachItem.channel.name}</p>
+                            <div>
+                              <p>{eachItem.viewCount} views</p>
+                              <p>{eachItem.publishedAt}</p>
+                            </div>
                           </div>
-                        </div>
-                      </LiSaved>
+                        </LiSaved>
+                      </Link>
                     ))}
                   </UlSaved>
                 </div>

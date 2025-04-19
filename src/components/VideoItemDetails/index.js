@@ -137,9 +137,9 @@ class VideoItemDetails extends Component {
                     <VideoHead>{title}</VideoHead>
                     <ViewLike>
                       <Views>
-                        <span>{viewCount} views</span>
+                        <p>{viewCount} </p>
                         <BsDot />
-                        <span>{publishedAt}</span>
+                        <p>{publishedAt}</p>
                       </Views>
                       <LikeIcons>
                         <LikeButton
@@ -149,7 +149,7 @@ class VideoItemDetails extends Component {
                           onClick={this.onLike}
                         >
                           <BiLike />
-                          <p>Like</p>
+                          Like
                         </LikeButton>
                         <DislikeButton
                           isDislike={isDislike}
@@ -158,7 +158,7 @@ class VideoItemDetails extends Component {
                           onClick={this.onDislike}
                         >
                           <BiDislike />
-                          <p>Dislike</p>
+                          Dislike
                         </DislikeButton>
                         <SaveButton
                           isLight={isLightTheme}
@@ -167,7 +167,7 @@ class VideoItemDetails extends Component {
                           onClick={() => onSaved(detailArray)}
                         >
                           <RiPlayListAddLine />
-                          <p>{isSaved ? 'Saved' : 'Save'}</p>
+                          {isSaved ? 'Saved' : 'Save'}
                         </SaveButton>
                       </LikeIcons>
                     </ViewLike>

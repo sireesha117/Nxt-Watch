@@ -47,6 +47,10 @@ class Home extends Component {
     this.getHomeData()
   }
 
+  onRetry = () => {
+    this.getHomeData()
+  }
+
   onCloseIcon = () => {
     this.setState({close: true})
   }
@@ -108,6 +112,22 @@ class Home extends Component {
         )
 
       case apiSts.success:
+        if (homeData.length === 0) {
+          // Handle the case when videos list is empty
+          return (
+            <div>
+              <img
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png " // Update with the correct URL for "No Videos view image"
+                alt="no videos"
+              />
+              <h1>No Search results found</h1>
+              <p>Try different key words or remove search filter</p>
+              <button type="button" onClick={this.onRetry}>
+                Retry
+              </button>
+            </div>
+          )
+        }
         return (
           <HomeSuccess>
             {homeData.map(video => (
@@ -125,9 +145,9 @@ class Home extends Component {
                   <Ib>{video.channel.name}</Ib>
 
                   <Views>
-                    <span>{video.viewCount} views</span>
+                    <p>{video.viewCount} views</p>
                     <BsDot />
-                    <span>{video.publishedAt}</span>
+                    <p>{video.publishedAt}</p>
                   </Views>
                 </HomeList>
               </StyledLink>
@@ -150,6 +170,11 @@ class Home extends Component {
                     }
                     alt="failure view"
                   />
+                  <h1>Oops! Something Went Wrong</h1>
+                  <p>We are having some trouble</p>
+                  <button type="button" onClick={this.onRetry}>
+                    Retry
+                  </button>
                 </div>
               )
             }}
@@ -175,7 +200,7 @@ class Home extends Component {
                 <Right isLight={isLightTheme} data-testid="home">
                   <div>
                     {!close && (
-                      <Banner isLight={isLightTheme}>
+                      <Banner isLight={isLightTheme} data-testid="banner">
                         <div>
                           <BannerImg
                             src={
@@ -183,12 +208,15 @@ class Home extends Component {
                                 ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
                                 : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
                             }
-                            alt="logo"
+                            alt="nxt watch logo"
                           />
                           <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <button type="button">Get it now</button>
+                          <button type="button">GET IT NOW</button>
                         </div>
-                        <CloseIcon onClick={this.onCloseIcon}>
+                        <CloseIcon
+                          data-testid="close"
+                          onClick={this.onCloseIcon}
+                        >
                           <IoIosClose />
                         </CloseIcon>
                       </Banner>

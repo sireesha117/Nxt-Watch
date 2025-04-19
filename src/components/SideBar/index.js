@@ -63,7 +63,7 @@ class SideBar extends Component {
                   isActive={location.pathname === '/saved-videos'}
                 >
                   <RiPlayListAddLine />
-                  <List isLight={isLightTheme}>Saved Videos</List>
+                  <List isLight={isLightTheme}>Saved videos</List>
                 </StyledLink>
               </UnOrdered>
               <Footer>
@@ -83,7 +83,7 @@ class SideBar extends Component {
                   />
                 </Logos>
                 <SidePara>
-                  Enjoy! Now to see your channels & recommendations!
+                  Enjoy! Now to see your channels and recommendations!
                 </SidePara>
               </Footer>
             </SideBarContainer>

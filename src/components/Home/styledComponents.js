@@ -139,7 +139,7 @@ export const HomeImg = styled.img`
   height: 100px;
   width: 200px;
 `
-export const HeadingHome = styled.h1`
+export const HeadingHome = styled.p`
   font-size: 16px; /* Make the font size small but readable */
 
   word-wrap: break-word; /* Ensure long titles break into multiple lines */
