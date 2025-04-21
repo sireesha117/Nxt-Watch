@@ -23,7 +23,7 @@ export const Loaders = styled.div`
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  aligh-items: center;
+  align-items: center;
   width: auto;
   height: 100%;
 `

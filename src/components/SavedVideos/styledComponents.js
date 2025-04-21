@@ -54,8 +54,9 @@ export const UlSaved = styled.ul`
 export const EmptyDiv = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-self: center;
+  align-items: center;
 `
 export const LiSaved = styled.li`
   display: flex;

@@ -39,15 +39,8 @@ class Trending extends Component {
     this.getHomeData()
   }
 
-  getFormattedDate = date => {
-    const rawOutput = formatDistanceToNow(new Date(date), {addSuffix: true})
-
-    const cleanedOutput = rawOutput.replace(
-      /\bover\b|\balmost\b|\babout\b/g,
-      '',
-    )
-    return cleanedOutput.trim()
-  }
+  getFormattedDate = date =>
+    formatDistanceToNow(new Date(date), {addSuffix: true})
 
   getHomeData = async () => {
     this.setState({apiStsData: apiSts.inProgress})
@@ -136,6 +129,11 @@ class Trending extends Component {
                     }
                     alt="failure view"
                   />
+                  <h1>Oops! Something Went Wrong</h1>
+                  <p>We are having some trouble</p>
+                  <button type="button" onClick={this.getHomeData}>
+                    Retry
+                  </button>
                 </div>
               )
             }}

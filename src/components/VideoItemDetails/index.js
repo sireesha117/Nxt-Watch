@@ -194,7 +194,30 @@ class VideoItemDetails extends Component {
         )
 
       case apiSts.failure:
-        return <p>Something went wrong. Please try again.</p>
+        return (
+          <WatchContext.Consumer>
+            {value => {
+              const {isLightTheme} = value
+              return (
+                <div data-testid="loader">
+                  <img
+                    src={
+                      isLightTheme
+                        ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+                        : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+                    }
+                    alt="failure view"
+                  />
+                  <h1>Oops! Something Went Wrong</h1>
+                  <p>We are having some trouble</p>
+                  <button type="button" onClick={this.getVideoData}>
+                    Retry
+                  </button>
+                </div>
+              )
+            }}
+          </WatchContext.Consumer>
+        )
 
       default:
         return null

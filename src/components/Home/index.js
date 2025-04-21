@@ -60,11 +60,8 @@ class Home extends Component {
     this.setState({userInput: event.target.value})
   }
 
-  getFormattedDate = date => {
-    const rawOutput = formatDistanceToNow(new Date(date), {addSuffix: true})
-
-    return rawOutput.replace(/almost |about /g, '')
-  }
+  getFormattedDate = date =>
+    formatDistanceToNow(new Date(date), {addSuffix: true})
 
   getHomeData = async () => {
     const {userInput} = this.state
