@@ -48,7 +48,7 @@ export const SideBarContainer = styled.div`
   padding: 10px;
   background-color: ${props => (props.isLight ? 'white' : ' #313131')};
   color: ${props => (props.isLight ? 'black' : 'white')};
-  height: 100vh; /* Sidebar spans full viewport height */
+  // height: 100vh; /* Sidebar spans full viewport height */
 
   left: 0;
   height: calc(100vh - 70px); /* Adjust based on header height */

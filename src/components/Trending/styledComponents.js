@@ -38,7 +38,7 @@ export const Banner = styled.div`
 `
 export const Right = styled.div`
   padding: 10px;
-  background-color: ${props => (props.isLight ? '#f9f9f9' : '#181818')};
+  background-color: ${props => (props.isLight ? '#f9f9f9' : '#0f0f0f')};
   color: ${props => (props.isLight ? 'black' : 'white')};
   width: calc(100% - 15%); /* Subtract sidebar's width from the total width */
   margin-left: 15%; /* Same as the sidebar's width */
@@ -72,6 +72,15 @@ export const HomeSuccess = styled.ul`
 `
 export const Ib = styled.p`
   margin-left: 0px;
+`
+
+export const Loaders = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  heiht: 100%;
+  align-self: center;
 `
 
 export const HomeList = styled.li`

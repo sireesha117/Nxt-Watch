@@ -2,19 +2,16 @@ import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
 import {BsDot, BsFire} from 'react-icons/bs'
-import {IoIosClose} from 'react-icons/io'
+
 import {formatDistanceToNow} from 'date-fns'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
   Ib,
-  GetIt,
   Trendings,
+  Loaders,
   Trend,
-  Banner,
-  BannerImg,
-  CloseIcon,
   Views,
   StyledLink,
   HomeImg,
@@ -73,10 +70,7 @@ class Trending extends Component {
           name: eachItem.channel.name,
           profileImageUrl: eachItem.channel.profile_image_url,
         },
-        viewCount:
-          eachItem.view_count > 1000
-            ? `${(eachItem.view_count / 1000).toFixed(1)}k`
-            : eachItem.view_count,
+        viewCount: eachItem.view_count,
         publishedAt: this.getFormattedDate(eachItem.published_at),
       }))
 
@@ -92,9 +86,9 @@ class Trending extends Component {
     switch (apiStsData) {
       case apiSts.inProgress:
         return (
-          <div className="loader-container" data-testid="loader">
+          <Loaders className="loader-container" data-testid="loader">
             <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-          </div>
+          </Loaders>
         )
 
       case apiSts.success:
@@ -156,7 +150,7 @@ class Trending extends Component {
     return (
       <WatchContext.Consumer>
         {value => {
-          const {isLightTheme, close, onCloseIcon} = value
+          const {isLightTheme} = value
 
           return (
             <div>
@@ -164,23 +158,6 @@ class Trending extends Component {
               <Divide>
                 <SideBar />
                 <Right isLight={isLightTheme} data-testid="trending">
-                  <div>
-                    {!close && (
-                      <Banner isLight={isLightTheme}>
-                        <div>
-                          <BannerImg
-                            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                            alt="logo"
-                          />
-                          <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <GetIt type="button">Get it now</GetIt>
-                        </div>
-                        <CloseIcon onClick={onCloseIcon}>
-                          <IoIosClose />
-                        </CloseIcon>
-                      </Banner>
-                    )}
-                  </div>
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>

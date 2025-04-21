@@ -56,10 +56,6 @@ class Home extends Component {
     this.getHomeData()
   }
 
-  // onCloseIcon = () => {
-  //   this.setState({close: true})
-  // }
-
   onUserInput = event => {
     this.setState({userInput: event.target.value})
   }
@@ -92,10 +88,7 @@ class Home extends Component {
           name: eachItem.channel.name,
           profileImageUrl: eachItem.channel.profile_image_url,
         },
-        viewCount:
-          eachItem.view_count > 1000
-            ? `${(eachItem.view_count / 1000).toFixed(1)}k`
-            : eachItem.view_count,
+        viewCount: eachItem.view_count,
         publishedAt: this.getFormattedDate(eachItem.published_at),
       }))
 
@@ -122,7 +115,7 @@ class Home extends Component {
           return (
             <EmptyHomeDiv>
               <EmptyImg
-                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png " // Update with the correct URL for "No Videos view image"
+                src="https://assets.ccbp.in/frontend/react-js/nxt-watch-no-search-results-img.png"
                 alt="no videos"
               />
               <h1>No Search results found</h1>

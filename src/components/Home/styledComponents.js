@@ -55,6 +55,7 @@ export const Profile = styled.img`
   width: 30px;
   margin-top: 0px;
   font-size: 10px;
+  margin-right: 5px;
 `
 
 export const ProfileDiv = styled.div`
@@ -62,6 +63,7 @@ export const ProfileDiv = styled.div`
   flex-direction: row;
   align-items: flex-start;
   font-size: 15px;
+  margin-top: 10px;
 `
 export const InputDiv = styled.div`
   padding: 10px;

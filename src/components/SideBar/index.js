@@ -77,10 +77,6 @@ class SideBar extends Component {
                     src="https://assets.ccbp.in/frontend/react-js/nxt-watch-twitter-logo-img.png"
                     alt="twitter logo"
                   />
-                  <LogoImgs
-                    src="https://assets.ccbp.in/frontend/react-js/nxt-watch-linked-in-logo-img.png"
-                    alt="linked in logo"
-                  />
                 </Logos>
                 <SidePara>
                   Enjoy! Now to see your channels and recommendations!

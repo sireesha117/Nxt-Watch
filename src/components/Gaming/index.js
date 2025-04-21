@@ -1,18 +1,14 @@
 import {Component} from 'react'
 import Cookies from 'js-cookie'
 import Loader from 'react-loader-spinner'
-import {IoIosClose} from 'react-icons/io'
+
 import {SiYoutubegaming} from 'react-icons/si'
 import Header from '../Header'
 import SideBar from '../SideBar'
 import {
   Divide,
   InfoRow,
-  GetIt,
-  CloseIcon,
-  BannerImg,
   HomeImg,
-  Banner,
   Game,
   Loaders,
   GameFire,
@@ -133,7 +129,7 @@ class Gaming extends Component {
     return (
       <WatchContext.Consumer>
         {value => {
-          const {isLightTheme, close, onCloseIcon} = value
+          const {isLightTheme} = value
 
           return (
             <div>
@@ -141,23 +137,6 @@ class Gaming extends Component {
               <Divide>
                 <SideBar />
                 <Right isLight={isLightTheme} data-testid="gaming">
-                  <div>
-                    {!close && (
-                      <Banner isLight={isLightTheme}>
-                        <div>
-                          <BannerImg
-                            src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-                            alt="logo"
-                          />
-                          <p>Buy Nxt Watch Premium prepaid plans with UPI</p>
-                          <GetIt type="button">Get it now</GetIt>
-                        </div>
-                        <CloseIcon onClick={onCloseIcon}>
-                          <IoIosClose />
-                        </CloseIcon>
-                      </Banner>
-                    )}
-                  </div>
                   <HomeData>{this.renderHomeData()}</HomeData>
                 </Right>
               </Divide>

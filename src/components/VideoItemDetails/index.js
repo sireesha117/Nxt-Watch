@@ -13,6 +13,7 @@ import SideBar from '../SideBar'
 import {
   Right,
   Divide,
+  Loaders,
   VideoHead,
   Channelimg,
   Views,
@@ -107,9 +108,9 @@ class VideoItemDetails extends Component {
     switch (apiStsData) {
       case apiSts.inProgress:
         return (
-          <div className="loader-container" data-testid="loader">
+          <Loaders className="loader-container" data-testid="loader">
             <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-          </div>
+          </Loaders>
         )
 
       case apiSts.success:

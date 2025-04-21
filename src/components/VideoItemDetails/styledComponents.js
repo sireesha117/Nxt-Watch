@@ -16,6 +16,15 @@ export const Right = styled.div`
   position: relative;
 `
 
+export const Loaders = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  heiht: 100%;
+  align-self: center;
+`
+
 export const LikeButton = styled.button`
   color: ${props => {
     if (props.isLike) {

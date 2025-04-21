@@ -45,7 +45,11 @@ const Header = () => (
                   <MdDarkMode size={30} />
                 </ThemeButton>
               ) : (
-                <ThemeButton isLight={isLightTheme} onClick={onClickThemeBtn}>
+                <ThemeButton
+                  data-testid="theme"
+                  isLight={isLightTheme}
+                  onClick={onClickThemeBtn}
+                >
                   <CiLight size={30} />
                 </ThemeButton>
               )}
