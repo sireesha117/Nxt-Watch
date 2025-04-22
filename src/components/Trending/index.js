@@ -79,9 +79,21 @@ class Trending extends Component {
     switch (apiStsData) {
       case apiSts.inProgress:
         return (
-          <Loaders className="loader-container" data-testid="loader">
-            <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
-          </Loaders>
+          <WatchContext.Consumer>
+            {value => {
+              const {isLightTheme} = value
+              return (
+                <Loaders className="loader-container" data-testid="loader">
+                  <Loader
+                    type="ThreeDots"
+                    color={isLightTheme ? '#000' : '#fff'}
+                    height="50"
+                    width="50"
+                  />
+                </Loaders>
+              )
+            }}
+          </WatchContext.Consumer>
         )
 
       case apiSts.success:

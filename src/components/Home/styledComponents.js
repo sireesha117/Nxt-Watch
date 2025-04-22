@@ -116,6 +116,8 @@ export const SearchInput = styled.input`
 `
 export const HomeData = styled.div`
   font-family: Roboto;
+  position: relative;
+  min-height: 200px;
 `
 export const HomeSuccess = styled.ul`
   display: flex;
